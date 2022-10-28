@@ -1,10 +1,9 @@
-package com.equipeturma862.cadastronf.service;
+/*package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.repository.FuncionariosRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -19,8 +18,8 @@ public class FuncionariosServiceImpl implements FuncionariosService{
 
 
     @Override
-    public Funcionarios save(Funcionarios complexoEolico) {
-        return funcionariosRepository.save(complexoEolico);
+    public Funcionarios save(Funcionarios funcionarios) {
+        return funcionariosRepository.save(funcionarios);
     }
 
     @Override
@@ -30,16 +29,13 @@ public class FuncionariosServiceImpl implements FuncionariosService{
     }
 
     @Override
-    public Funcionarios update(Long id, Funcionarios complexoEolico) {
-        Funcionarios complexoEolicoUpdate = funcionariosRepository.findById(id).get();
-        complexoEolicoUpdate.setNome(complexoEolicoUpdate.getNome());
-        return funcionariosRepository.save(complexoEolicoUpdate);
+    public Funcionarios update(Long id, Funcionarios funcionarios) {
+        funcionarios.setId(id)
+        return funcionariosRepository.save(funcionarios);
     }
 
     @Override
     public void delete(Long id) {
         funcionariosRepository.deleteById(id);
     }
-
-
-}
+}*/
