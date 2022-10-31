@@ -15,12 +15,13 @@ public class Requisicao {
     @Id
     private Integer id;
     private LocalDateTime dataHoraRegistro;
+    private LocalDateTime dataPrestacaoServico;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "funcionario_id")
     private Funcionario funcionarioSolicitante;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private NotaFiscal notaFiscal;
 
 }

@@ -18,11 +18,11 @@ public class NotaFiscal {
     private LocalDate dataEmissao;
     private BigDecimal valor;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "tipo_natureza_operacao_id")
     private TipoNaturezaOperacao tipoNaturezaOperacao;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "remetente_id")
     private Remetente remetente;
 

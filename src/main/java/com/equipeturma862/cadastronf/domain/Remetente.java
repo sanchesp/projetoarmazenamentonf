@@ -5,7 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table
@@ -18,5 +20,8 @@ public class Remetente {
     private String CNPJ;
     private String razaoSocial;
     private String telefone;
+
+    @OneToMany
+    private List<NotaFiscal> notaFiscais;
 
 }
