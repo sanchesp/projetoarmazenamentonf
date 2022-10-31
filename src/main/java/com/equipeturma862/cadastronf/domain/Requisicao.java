@@ -3,10 +3,7 @@ package com.equipeturma862.cadastronf.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,7 +16,8 @@ public class Requisicao {
     private Integer id;
     private LocalDateTime dataHoraRegistro;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "funcionario_id")
     private Funcionario funcionarioSolicitante;
 
     @OneToOne
