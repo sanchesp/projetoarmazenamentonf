@@ -14,16 +14,15 @@ import java.time.LocalDate;
 public class NotaFiscal {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private LocalDate dataEmissao;
     private BigDecimal valor;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "tipo_natureza_operacao_id")
     private TipoNaturezaOperacao tipoNaturezaOperacao;
 
-    @ManyToOne
-    @JoinColumn(name = "remetente_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Remetente remetente;
 
 }

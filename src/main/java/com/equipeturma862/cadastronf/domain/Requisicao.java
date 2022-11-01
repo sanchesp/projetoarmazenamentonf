@@ -13,7 +13,9 @@ import java.time.LocalDateTime;
 public class Requisicao {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
+
     private LocalDateTime dataHoraRegistro;
     private LocalDateTime dataPrestacaoServico;
 

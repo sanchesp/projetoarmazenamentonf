@@ -3,10 +3,7 @@ package com.equipeturma862.cadastronf.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -16,6 +13,7 @@ import java.util.List;
 public class Remetente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String CNPJ;
     private String razaoSocial;

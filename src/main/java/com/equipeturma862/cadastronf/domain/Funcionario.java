@@ -15,6 +15,7 @@ import java.util.List;
 public class Funcionario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String nome;
     private Integer funcional;
