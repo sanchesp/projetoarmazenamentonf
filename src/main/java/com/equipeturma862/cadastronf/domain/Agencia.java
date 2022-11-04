@@ -1,8 +1,7 @@
 package com.equipeturma862.cadastronf.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,6 +10,9 @@ import java.util.List;
 @Table
 @Setter
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Agencia {
 
     @Id
@@ -22,4 +24,6 @@ public class Agencia {
 
     @OneToMany
     private List<Funcionario> funcionarios;
+
+
 }
