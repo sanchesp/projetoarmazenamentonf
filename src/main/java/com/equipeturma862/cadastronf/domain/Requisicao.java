@@ -14,7 +14,7 @@ public class Requisicao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Long id;
 
     private LocalDateTime dataHoraRegistro;
     private LocalDateTime dataPrestacaoServico;

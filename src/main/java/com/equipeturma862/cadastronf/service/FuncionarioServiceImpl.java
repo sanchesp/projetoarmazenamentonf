@@ -26,19 +26,19 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     }
 
     @Override
-    public Funcionario getById(Integer id) {
+    public Funcionario getById(Long id) {
         return funcionarioRepository.findById(id).get();
 
     }
 
     @Override
-    public Funcionario update(Integer id, Funcionario funcionarios) {
+    public Funcionario update(Long id, Funcionario funcionarios) {
         funcionarios.setId(id);
         return funcionarioRepository.save(funcionarios);
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         funcionarioRepository.deleteById(id);
     }
 }

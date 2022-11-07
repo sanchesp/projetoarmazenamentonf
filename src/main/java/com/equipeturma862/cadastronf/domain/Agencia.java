@@ -17,9 +17,9 @@ public class Agencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Long id;
     private String nome;
-    private Integer numeroDeIdentificacao;
+    private Long numeroDeIdentificacao;
     private String email;
 
     @OneToMany

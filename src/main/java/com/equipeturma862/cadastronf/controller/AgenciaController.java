@@ -3,6 +3,7 @@ package com.equipeturma862.cadastronf.controller;
 import com.equipeturma862.cadastronf.domain.Agencia;
 import com.equipeturma862.cadastronf.dto.AgenciaDTO;
 import com.equipeturma862.cadastronf.service.AgenciaService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,14 +11,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping ("agencias")
+@RequiredArgsConstructor
 public class AgenciaController {
 
     private final AgenciaService agenciaService;
 
-
-    public AgenciaController(AgenciaService agenciaService) {
-        this.agenciaService = agenciaService;
-    }
     @GetMapping
     List<AgenciaDTO> list(String name) {
 

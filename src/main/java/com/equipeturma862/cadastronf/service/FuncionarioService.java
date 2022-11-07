@@ -7,7 +7,7 @@ import java.util.List;
 public interface FuncionarioService {
     List<Funcionario> list(String nome);
     Funcionario save(Funcionario funcionario);
-    Funcionario getById(Integer id);
-    Funcionario update(Integer id, Funcionario funcionario);
-    void delete(Integer id);
+    Funcionario getById(Long id);
+    Funcionario update(Long id, Funcionario funcionario);
+    void delete(Long id);
 }

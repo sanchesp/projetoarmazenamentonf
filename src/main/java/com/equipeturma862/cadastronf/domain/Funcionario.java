@@ -1,8 +1,7 @@
 package com.equipeturma862.cadastronf.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,14 +10,16 @@ import java.util.List;
 @Table
 @Setter
 @Getter
-
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Long id;
     private String nome;
-    private Integer funcional;
+    private Long funcional;
     private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -25,18 +25,18 @@ public class AgenciaServiceImpl implements AgenciaService{
     }
 
     @Override
-    public Agencia getById(Integer id) {
+    public Agencia getById(Long id) {
         return agenciaRepository.findById(id).get();
     }
 
     @Override
-    public Agencia update(Integer id, Agencia agencia) {
+    public Agencia update(Long id, Agencia agencia) {
         agencia.setId(id);
         return agenciaRepository.save(agencia);
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         agenciaRepository.deleteById(id);
     }
 }
