@@ -1,12 +1,12 @@
-package service;
+package com.equipeturma862.cadastronf.service;
 
-import java.util.List;
-
+import com.equipeturma862.cadastronf.domain.Requisicao;
+import com.equipeturma862.cadastronf.repository.RequisicaoRepository;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Service;
 
-import domain.Requisicao;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -26,37 +26,19 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 	    }
 
 	    @Override
-	    public Requisicao getById(Integer id) {
+	    public Requisicao getById(Long id) {
 	        return requisicaoRepository.findById(id).get();
 	    }
 
 	    @Override
-	    public Requisicao update(Integer id, Requisicao requisicao) {
+	    public Requisicao update(Long id, Requisicao requisicao) {
 	        requisicao.setId(id);
 	        return requisicaoRepository.save(requisicao);
 	    }
 
 	    @Override
-	    public void delete(Integer id) {
+	    public void delete(Long id) {
 	    	requisicaoRepository.deleteById(id);
 	    }
-
-		@Override
-		public Requisicao save(Requisicao requisicao) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Requisicao getById(Integer id) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Requisicao update(Integer id, Requisicao requisicao) {
-			// TODO Auto-generated method stub
-			return null;
-		}
 	   
 }

@@ -9,9 +9,9 @@ public interface TipoNaturezaOperacaoService {
 
     TipoNaturezaOperacao save(TipoNaturezaOperacao tipoNaturezaOperacao);
 
-    TipoNaturezaOperacao getById(Integer id);
+    TipoNaturezaOperacao getById(Long id);
 
-    TipoNaturezaOperacao update(Integer id, TipoNaturezaOperacao tipoNaturezaOperacao);
+    TipoNaturezaOperacao update(Long id, TipoNaturezaOperacao tipoNaturezaOperacao);
 
-    void delete(Integer id);
+    void delete(Long id);
 }

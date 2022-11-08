@@ -24,18 +24,18 @@ public class TipoNaturezaOperacaoServiceImpl implements TipoNaturezaOperacaoServ
     }
 
     @Override
-    public TipoNaturezaOperacao getById(Integer id) {
+    public TipoNaturezaOperacao getById(Long id) {
         return tipoNaturezaOperacaoRepository.findById(id).get();
     }
 
     @Override
-    public TipoNaturezaOperacao update(Integer id, TipoNaturezaOperacao tipoNaturezaOperacao) {
-        tipoNaturezaOperacao.setId(Long.valueOf(id));
+    public TipoNaturezaOperacao update(Long id, TipoNaturezaOperacao tipoNaturezaOperacao) {
+        tipoNaturezaOperacao.setId(id);
         return tipoNaturezaOperacaoRepository.save(tipoNaturezaOperacao);
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         tipoNaturezaOperacaoRepository.deleteById(id);
     }
 }
