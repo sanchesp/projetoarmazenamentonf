@@ -264,19 +264,15 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/agencias/{agenciasid}/funcionarios/{funcionario_id}/requisicao/{requisicao_id}",
+							"raw": "http://localhost:8080/requisicoes/{requisicoes_id}",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"agencias",
-								"{agenciasid}",
-								"funcionarios",
-								"{funcionario_id}",
-								"requisicao",
-								"{requisicao_id}"
+								"requisicoes",
+								"{requisicoes_id}"
 							]
 						}
 					},
@@ -288,19 +284,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/agencias/{agenciasid}/funcionarios/{funcionario_id}/requisicao/{requisicao_id}",
+							"raw": "http://localhost:8080/requisicoes/{requisicoes_id}",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"agencias",
-								"{agenciasid}",
-								"funcionarios",
-								"{funcionario_id}",
-								"requisicao",
-								"{requisicao_id}"
+								"requisicoes",
+								"{requisicoes_id}"
 							]
 						}
 					},
