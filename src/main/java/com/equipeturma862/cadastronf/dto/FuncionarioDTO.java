@@ -10,9 +10,7 @@ import lombok.Setter;
 public class FuncionarioDTO {
 
     private Long id;
-
     private String nome;
-
     private Long funcional;
     private String email;
 }

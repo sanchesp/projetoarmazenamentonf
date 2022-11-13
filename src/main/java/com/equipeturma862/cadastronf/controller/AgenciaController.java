@@ -28,14 +28,30 @@ public class AgenciaController {
                 .email(agencia.getEmail()).build()).toList();
     }
     @PostMapping
-    Agencia save(@RequestBody @Valid AgenciaDTO agencia) {
+    Agencia save(@RequestBody @Valid AgenciaDTO agenciaDTO) {
         Agencia agencias = Agencia.builder()
-                .nome(agencia.getNome())
-                .id(agencia.getId())
-                .numeroDeIdentificacao(agencia.getNumeroDeIdentificacao())
-                .email(agencia.getEmail())
+                .nome(agenciaDTO.getNome())
+                .id(agenciaDTO.getId())
+                .numeroDeIdentificacao(agenciaDTO.getNumeroDeIdentificacao())
+                .email(agenciaDTO.getEmail())
                 .build();
         return agenciaService.save(agencias);
+    }
+
+    @PutMapping("{agenciasId}")
+    Agencia update(@PathVariable Long agenciasId, @RequestBody AgenciaDTO agenciaDTO) {
+        Agencia agenciasBuilder = Agencia.builder()
+                .nome(agenciaDTO.getNome())
+                .id(agenciaDTO.getId())
+                .numeroDeIdentificacao(agenciaDTO.getNumeroDeIdentificacao())
+                .email(agenciaDTO.getEmail())
+                .build();
+        return agenciaService.update(agenciasId, agenciasBuilder);
+    }
+
+    @DeleteMapping("{agenciasId}")
+    void delete(@PathVariable Long agenciasId) {
+        agenciaService.delete(agenciasId);
     }
 }
 

@@ -10,19 +10,19 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("agencias/{agenciaID}/funcionarios")
+@RequestMapping("agencias/{agenciaId}/funcionarios")
 @RequiredArgsConstructor
 public class FuncionarioController {
 
     private final FuncionarioService funcionarioService;
 
     @PostMapping
-    Funcionario save(@RequestBody @Valid FuncionarioDTO funcionario, @PathVariable Long agenciaID) {
+    Funcionario save(@RequestBody @Valid FuncionarioDTO funcionarioDTO, @PathVariable Long agenciaId) {
         Funcionario funcionarioBuilder = Funcionario.builder()
-                .nome(funcionario.getNome())
-                .funcional(funcionario.getFuncional())
-                .email(funcionario.getEmail()).build();
-        return funcionarioService.save(funcionarioBuilder);
+                .nome(funcionarioDTO.getNome())
+                .funcional(funcionarioDTO.getFuncional())
+                .email(funcionarioDTO.getEmail()).build();
+        return funcionarioService.save(funcionarioBuilder, agenciaId);
     }
 
     @GetMapping
@@ -35,5 +35,22 @@ public class FuncionarioController {
                 .id(funcionario.getId())
                 .funcional(funcionario.getFuncional())
                 .email(funcionario.getEmail()).build()).toList();
+    }
+    @GetMapping("{funcionarioId}")
+    Funcionario getById(@PathVariable Long funcionarioId) {
+        return funcionarioService.getById(funcionarioId);
+    }
+    @PutMapping("{funcionarioId}")
+    Funcionario update(@PathVariable Long funcionarioId, @RequestBody FuncionarioDTO funcionarioDTO) {
+        Funcionario funcionarioBuilder = Funcionario.builder()
+                .nome(funcionarioDTO.getNome())
+                .funcional(funcionarioDTO.getFuncional())
+                .email(funcionarioDTO.getEmail()).build();
+        return funcionarioService.update(funcionarioId, funcionarioBuilder);
+    }
+
+    @DeleteMapping("{funcionarioId}")
+    void delete(@PathVariable Long funcionarioId) {
+        funcionarioService.delete(funcionarioId);
     }
 }

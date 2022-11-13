@@ -1,7 +1,6 @@
 package com.equipeturma862.cadastronf.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +9,9 @@ import java.time.LocalDateTime;
 @Table
 @Setter
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Requisicao {
 
     @Id
@@ -17,7 +19,7 @@ public class Requisicao {
     private Long id;
 
     private LocalDateTime dataHoraRegistro;
-    private LocalDateTime dataPrestacaoServico;
+    private String detalheDoTrajeto;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "funcionario_id")

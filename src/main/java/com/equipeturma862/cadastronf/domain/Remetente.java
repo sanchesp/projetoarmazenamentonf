@@ -1,7 +1,6 @@
 package com.equipeturma862.cadastronf.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,11 +9,15 @@ import java.util.List;
 @Table
 @Setter
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Remetente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    private ClassificacaoPessoa tipoDePessoa;
     private String CNPJ;
     private String razaoSocial;
     private String telefone;

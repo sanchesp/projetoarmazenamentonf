@@ -1,33 +1,26 @@
-package com.equipeturma862.cadastronf.domain;
+package com.equipeturma862.cadastronf.dto;
 
-import lombok.*;
+import com.equipeturma862.cadastronf.domain.Remetente;
+import com.equipeturma862.cadastronf.domain.TipoNaturezaOperacao;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-@Table
-@Setter
-@Getter
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class NotaFiscal {
+@Getter
+@Setter
+public class NotaFiscalDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private Long numeroNotaFiscal;
     private LocalDate dataEmissao;
     private LocalDateTime dataPrestacaoServico;
     private BigDecimal valor;
-
-    @OneToOne(cascade = CascadeType.PERSIST)
     private TipoNaturezaOperacao tipoNaturezaOperacao;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     private Remetente remetente;
 
 }

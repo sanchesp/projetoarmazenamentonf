@@ -1,6 +1,8 @@
 package com.equipeturma862.cadastronf.service;
 
+import com.equipeturma862.cadastronf.domain.Agencia;
 import com.equipeturma862.cadastronf.domain.Funcionario;
+import com.equipeturma862.cadastronf.repository.AgenciaRepository;
 import com.equipeturma862.cadastronf.repository.FuncionarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
@@ -14,6 +16,7 @@ import java.util.List;
 public class FuncionarioServiceImpl implements FuncionarioService{
 
     private final FuncionarioRepository funcionarioRepository;
+    private final AgenciaRepository agenciaRepository;
 
     @Override
     public List<Funcionario> list(String nome) {
@@ -21,24 +24,27 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     }
 
     @Override
-    public Funcionario save(Funcionario funcionarios) {
-        return funcionarioRepository.save(funcionarios);
+    public Funcionario save(Funcionario funcionario, Long agenciaId) {
+        if (agenciaRepository.existsById(agenciaId)){
+            Agencia agenciaBuilder = Agencia.builder()
+                    .id(agenciaId).build();
+            funcionario.setAgencia(agenciaBuilder);}
+        return funcionarioRepository.save(funcionario);
     }
 
     @Override
-    public Funcionario getById(Long id) {
-        return funcionarioRepository.findById(id).get();
-
+    public Funcionario getById(Long funcionarioId) {
+        return funcionarioRepository.findById(funcionarioId).get();
     }
 
     @Override
-    public Funcionario update(Long id, Funcionario funcionarios) {
-        funcionarios.setId(id);
-        return funcionarioRepository.save(funcionarios);
+    public Funcionario update(Long funcionarioId, Funcionario funcionario) {
+        funcionario.setId(funcionarioId);
+        return funcionarioRepository.save(funcionario);
     }
 
     @Override
-    public void delete(Long id) {
-        funcionarioRepository.deleteById(id);
+    public void delete(Long funcionarioId) {
+        funcionarioRepository.deleteById(funcionarioId);
     }
 }

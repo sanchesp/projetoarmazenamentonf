@@ -7,8 +7,8 @@ import java.util.List;
 public interface NotaFiscalService {
 
     List<NotaFiscal> list(String nome);
-    NotaFiscal save(NotaFiscal notaFiscal);
-    NotaFiscal getById(Integer id);
-    NotaFiscal update(Integer id, NotaFiscal notaFiscal);
-    void delete(Integer id);
+    NotaFiscal save(NotaFiscal notaFiscal, Long remetenteId);
+    NotaFiscal getById(Long id);
+    NotaFiscal update(Long id, NotaFiscal notaFiscal);
+    void delete(Long id);
 }
