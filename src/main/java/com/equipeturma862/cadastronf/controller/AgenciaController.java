@@ -17,9 +17,9 @@ public class AgenciaController {
     private final AgenciaService agenciaService;
 
     @GetMapping
-    List<AgenciaDTO> list(String name) {
+    List<AgenciaDTO> list(String nome) {
 
-        List<Agencia> list = agenciaService.list(name);
+        List<Agencia> list = agenciaService.list(nome);
 
         return list.stream().map(agencia -> AgenciaDTO.builder()
                 .nome(agencia.getNome())
