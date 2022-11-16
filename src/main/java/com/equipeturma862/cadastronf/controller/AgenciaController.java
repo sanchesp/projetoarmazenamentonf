@@ -17,15 +17,19 @@ public class AgenciaController {
     private final AgenciaService agenciaService;
 
     @GetMapping
-    List<AgenciaDTO> list(String nome) {
+    List<AgenciaDTO> list(String name) {
 
-        List<Agencia> list = agenciaService.list(nome);
+        List<Agencia> list = agenciaService.list(name);
 
         return list.stream().map(agencia -> AgenciaDTO.builder()
                 .nome(agencia.getNome())
                 .id(agencia.getId())
                 .numeroDeIdentificacao(agencia.getNumeroDeIdentificacao())
                 .email(agencia.getEmail()).build()).toList();
+    }
+    @GetMapping("{agenciaId}")
+    Agencia getById(@PathVariable Long agenciaId) {
+        return agenciaService.getById(agenciaId);
     }
     @PostMapping
     Agencia save(@RequestBody @Valid AgenciaDTO agenciaDTO) {

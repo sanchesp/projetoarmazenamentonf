@@ -4,6 +4,7 @@ import com.equipeturma862.cadastronf.domain.TipoNaturezaOperacao;
 
 import java.util.List;
 
+
 public interface TipoNaturezaOperacaoService {
     List<TipoNaturezaOperacao> list (String nome);
 

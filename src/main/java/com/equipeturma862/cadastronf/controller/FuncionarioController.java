@@ -16,7 +16,7 @@ public class FuncionarioController {
 
     private final FuncionarioService funcionarioService;
 
-    @PostMapping("agencias/{agenciaId}/funcionarios")
+    @PostMapping
     Funcionario save(@RequestBody @Valid FuncionarioDTO funcionarioDTO, @PathVariable Long agenciaId) {
         Funcionario funcionarioBuilder = Funcionario.builder()
                 .nome(funcionarioDTO.getNome())
@@ -39,6 +39,7 @@ public class FuncionarioController {
     @GetMapping("{funcionarioId}")
     Funcionario getById(@PathVariable Long funcionarioId) {
         return funcionarioService.getById(funcionarioId);
+
     }
     @PutMapping("{funcionarioId}")
     Funcionario update(@PathVariable Long funcionarioId, @RequestBody FuncionarioDTO funcionarioDTO) {

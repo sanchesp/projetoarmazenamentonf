@@ -26,16 +26,20 @@ public class RemetenteController {
                 .razaoSocial(remetente.getRazaoSocial())
                 .telefone(remetente.getTelefone()).build()).toList();
     }
-    @PostMapping("remetente")
+    @GetMapping("{remetenteId}")
+    Remetente getById(@PathVariable Long remetenteId) {
+        return remetenteService.getById(remetenteId);
+    }
+    @PostMapping
     Remetente save(@RequestBody @Valid RemetenteDTO remetenteDTO) {
-        Remetente agencias = Remetente.builder()
+        Remetente remetenteBuilder = Remetente.builder()
                 .id(remetenteDTO.getId())
                 .tipoDePessoa(remetenteDTO.getTipoDePessoa())
                 .CNPJ(remetenteDTO.getCNPJ())
                 .razaoSocial(remetenteDTO.getRazaoSocial())
                 .telefone(remetenteDTO.getTelefone())
                 .build();
-        return remetenteService.save(agencias);
+        return remetenteService.save(remetenteBuilder);
     }
 
     @PutMapping("remetente/{remetenteId}")
