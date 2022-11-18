@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -36,7 +37,7 @@ public class RequisicaoController {
     Requisicao save(@RequestBody @Valid RequisicoesDTO requisicoesDTO) {
         Requisicao requisicaoBuilder = Requisicao.builder()
                 .id(requisicoesDTO.getId())
-                .dataHoraRegistro(requisicoesDTO.getDataHoraRegistro())
+                .dataHoraRegistro(LocalDateTime.now())
                 .detalheDoTrajeto(requisicoesDTO.getDetalheDoTrajeto())
                 .funcionarioSolicitante(requisicoesDTO.getFuncionarioSolicitante())
                 .notaFiscal(requisicoesDTO.getNotaFiscal())

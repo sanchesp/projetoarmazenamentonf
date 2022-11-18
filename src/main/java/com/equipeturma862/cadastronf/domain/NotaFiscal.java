@@ -30,7 +30,7 @@ public class NotaFiscal implements Serializable {
     @OneToOne(cascade = CascadeType.PERSIST)
     private TipoNaturezaOperacao tipoNaturezaOperacao;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Remetente remetente;
 
 }

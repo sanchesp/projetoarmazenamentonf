@@ -24,7 +24,7 @@ public class Requisicao implements Serializable {
     private LocalDateTime dataHoraRegistro;
     private String detalheDoTrajeto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "funcionario_id")
     private Funcionario funcionarioSolicitante;
 

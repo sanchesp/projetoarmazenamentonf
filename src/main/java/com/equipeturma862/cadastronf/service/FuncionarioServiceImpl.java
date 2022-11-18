@@ -27,7 +27,7 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     public Funcionario save(Funcionario funcionario, Long agenciaId) {
         if (agenciaRepository.existsById(agenciaId)){
             Agencia agenciaBuilder = Agencia.builder()
-                    .id(agenciaId).build();
+            .id(agenciaId).build();
             funcionario.setAgencia(agenciaBuilder);}
         return funcionarioRepository.save(funcionario);
     }

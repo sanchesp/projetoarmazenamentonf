@@ -32,7 +32,6 @@ public class FuncionarioController {
 
         return list.stream().map(funcionario -> FuncionarioDTO.builder()
                 .nome(funcionario.getNome())
-                .id(funcionario.getId())
                 .funcional(funcionario.getFuncional())
                 .email(funcionario.getEmail()).build()).toList();
     }

@@ -4,13 +4,20 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 @Builder
 @Getter
 @Setter
 public class FuncionarioDTO {
 
-    private Long id;
+    @NotBlank
     private String nome;
+
+    @NotBlank
     private Long funcional;
+
+    @Email
     private String email;
 }

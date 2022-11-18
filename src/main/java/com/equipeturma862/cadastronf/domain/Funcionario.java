@@ -1,8 +1,8 @@
 package com.equipeturma862.cadastronf.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,8 +26,8 @@ public class Funcionario implements Serializable {
     private Long funcional;
     private String email;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties
+    @ManyToOne
     @JoinColumn(name = "agencia_id")
     private Agencia Agencia;
 
