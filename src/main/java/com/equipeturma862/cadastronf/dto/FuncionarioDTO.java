@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Builder
 @Getter
@@ -15,7 +16,7 @@ public class FuncionarioDTO {
     @NotBlank
     private String nome;
 
-    @NotBlank
+    @NotNull
     private Long funcional;
 
     @Email
