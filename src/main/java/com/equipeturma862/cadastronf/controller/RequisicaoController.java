@@ -29,9 +29,9 @@ public class RequisicaoController {
                 .funcionarioSolicitante(requisicao.getFuncionarioSolicitante())
                 .notaFiscal(requisicao.getNotaFiscal()).build()).toList();
     }
-    @GetMapping("{requisicoesId}")
-    Requisicao getById(@PathVariable Long requisicoesId) {
-        return requisicaoService.getById(requisicoesId);
+    @GetMapping("{requisicaoId}")
+    Requisicao getById(@PathVariable Long requisicaoId) {
+        return requisicaoService.getById(requisicaoId);
     }
     @PostMapping
     Requisicao save(@RequestBody @Valid RequisicoesDTO requisicoesDTO) {
@@ -45,8 +45,8 @@ public class RequisicaoController {
         return requisicaoService.save(requisicaoBuilder);
     }
 
-    @PutMapping("{requisicoesId}")
-    Requisicao update(@PathVariable Long requisicoesId, @RequestBody RequisicoesDTO requisicoesDTO) {
+    @PutMapping("{requisicaoId}")
+    Requisicao update(@PathVariable Long requisicaoId, @RequestBody RequisicoesDTO requisicoesDTO) {
         Requisicao requisicaoBuilder = Requisicao.builder()
                 .id(requisicoesDTO.getId())
                 .dataHoraRegistro(requisicoesDTO.getDataHoraRegistro())
@@ -54,12 +54,12 @@ public class RequisicaoController {
                 .funcionarioSolicitante(requisicoesDTO.getFuncionarioSolicitante())
                 .notaFiscal(requisicoesDTO.getNotaFiscal())
                 .build();
-        return requisicaoService.update(requisicoesId, requisicaoBuilder);
+        return requisicaoService.update(requisicaoId, requisicaoBuilder);
     }
 
-    @DeleteMapping("{requisicoesId}")
-    void delete(@PathVariable Long requisicoesId) {
-        requisicaoService.delete(requisicoesId);
+    @DeleteMapping("{requisicaoId}")
+    void delete(@PathVariable Long requisicaoId) {
+        requisicaoService.delete(requisicaoId);
     }
 
 }

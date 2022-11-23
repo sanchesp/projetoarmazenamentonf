@@ -42,20 +42,20 @@ public class AgenciaController {
         return agenciaService.save(agencias);
     }
 
-    @PutMapping("{agenciasId}")
-    Agencia update(@PathVariable Long agenciasId, @RequestBody AgenciaDTO agenciaDTO) {
+    @PutMapping("{agenciaId}")
+    Agencia update(@PathVariable Long agenciaId, @RequestBody AgenciaDTO agenciaDTO) {
         Agencia agenciasBuilder = Agencia.builder()
                 .nome(agenciaDTO.getNome())
                 .id(agenciaDTO.getId())
                 .numeroDeIdentificacao(agenciaDTO.getNumeroDeIdentificacao())
                 .email(agenciaDTO.getEmail())
                 .build();
-        return agenciaService.update(agenciasId, agenciasBuilder);
+        return agenciaService.update(agenciaId, agenciasBuilder);
     }
 
-    @DeleteMapping("{agenciasId}")
-    void delete(@PathVariable Long agenciasId) {
-        agenciaService.delete(agenciasId);
+    @DeleteMapping("{agenciaId}")
+    void delete(@PathVariable Long agenciaId) {
+        agenciaService.delete(agenciaId);
     }
 }
 

@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class NotaFiscal implements Serializable {
 
     private static final long serialVersionUID = 1L;

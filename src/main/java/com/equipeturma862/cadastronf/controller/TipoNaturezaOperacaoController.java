@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping ("tipos_naturezas_operacoes")
+@RequestMapping ("tipos-naturezas-operacoes")
 @RequiredArgsConstructor
 public class TipoNaturezaOperacaoController {
 

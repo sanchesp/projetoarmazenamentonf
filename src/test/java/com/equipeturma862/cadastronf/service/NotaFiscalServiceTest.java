@@ -3,6 +3,7 @@ package com.equipeturma862.cadastronf.service;
 import com.equipeturma862.cadastronf.builder.NotaFiscalBuilder;
 import com.equipeturma862.cadastronf.domain.NotaFiscal;
 import com.equipeturma862.cadastronf.repository.NotasFiscaisRepositoy;
+import com.equipeturma862.cadastronf.repository.RemetenteRepositoy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,12 @@ public class NotaFiscalServiceTest {
 
     @Mock
     private NotasFiscaisRepositoy notasFiscaisRepositoy;
+
+    @Mock
+    private RemetenteRepositoy remetenteRepositoy;
+
+    @Mock
+    private RequisicaoService requisicaoService;
 
     @Autowired
     @InjectMocks
@@ -36,6 +43,7 @@ public class NotaFiscalServiceTest {
         //When
 
         //Then
+
 
 
     }

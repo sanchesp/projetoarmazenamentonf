@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("remetente")
+@RequestMapping("remetentes")
 @RequiredArgsConstructor
 public class RemetenteController {
 
@@ -43,7 +43,7 @@ public class RemetenteController {
         return remetenteService.save(remetenteBuilder);
     }
 
-    @PutMapping("remetente/{remetenteId}")
+    @PutMapping("{remetenteId}")
     Remetente update(@PathVariable Long remetenteId, @RequestBody RemetenteDTO remetenteDTO) {
         Remetente remetenteBuilder = Remetente.builder()
                 .id(remetenteDTO.getId())
@@ -55,7 +55,7 @@ public class RemetenteController {
         return remetenteService.update(remetenteId, remetenteBuilder);
     }
 
-    @DeleteMapping("remetente/{remetenteId}")
+    @DeleteMapping("{remetenteId}")
     void delete(@PathVariable Long remetenteId) {
         remetenteService.delete(remetenteId);
     }

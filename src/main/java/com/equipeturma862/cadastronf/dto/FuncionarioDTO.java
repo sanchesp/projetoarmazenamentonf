@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class FuncionarioDTO {
 
+    private Long id;
     @NotBlank
     private String nome;
 

@@ -10,14 +10,14 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("remetente/{remetenteId}/notas-fiscais")
+@RequestMapping("remetentes/{remetenteId}/notas-fiscais")
 @RequiredArgsConstructor
 public class NotaFiscalController {
 
     private final NotaFiscalService notaFiscalService;
 
     @PostMapping
-    NotaFiscal save(@RequestBody @Valid NotaFiscalDTO notaFiscalDTO, Long remetenteId) {
+    NotaFiscal save(@RequestBody @Valid NotaFiscalDTO notaFiscalDTO, @PathVariable Long remetenteId) {
         NotaFiscal notafiscalBuilder = NotaFiscal.builder()
                 .numeroNotaFiscal(notaFiscalDTO.getNumeroNotaFiscal())
                 .dataEmissao(notaFiscalDTO.getDataEmissao())
@@ -41,12 +41,12 @@ public class NotaFiscalController {
                 .tipoNaturezaOperacao(notaFiscal.getTipoNaturezaOperacao())
                 .remetente(notaFiscal.getRemetente()).build()).toList();
     }
-    @GetMapping("{notasFiscaisId}")
-    NotaFiscal getById(@PathVariable Long notasFiscaisId) {
-        return notaFiscalService.getById(notasFiscaisId);
+    @GetMapping("{notaFiscaiId}")
+    NotaFiscal getById(@PathVariable Long notaFiscalId) {
+        return notaFiscalService.getById(notaFiscalId);
     }
-    @PutMapping("{notasFiscaisId}")
-    NotaFiscal update(@PathVariable Long notasFiscaisId, @RequestBody NotaFiscalDTO notaFiscalDTO) {
+    @PutMapping("{notaFiscalId}")
+    NotaFiscal update(@PathVariable Long notaFiscalId, @RequestBody NotaFiscalDTO notaFiscalDTO) {
         NotaFiscal notaFiscalBuilder = NotaFiscal.builder()
                 .numeroNotaFiscal(notaFiscalDTO.getNumeroNotaFiscal())
                 .dataEmissao(notaFiscalDTO.getDataEmissao())
@@ -54,11 +54,11 @@ public class NotaFiscalController {
                 .valor(notaFiscalDTO.getValor())
                 .tipoNaturezaOperacao(notaFiscalDTO.getTipoNaturezaOperacao())
                 .remetente(notaFiscalDTO.getRemetente()).build();
-        return notaFiscalService.update(notasFiscaisId, notaFiscalBuilder);
+        return notaFiscalService.update(notaFiscalId, notaFiscalBuilder);
     }
 
-    @DeleteMapping("{notasFiscaisId}")
-    void delete(@PathVariable Long notasFiscaisId) {
-        notaFiscalService.delete(notasFiscaisId);
+    @DeleteMapping("{notaFiscalId}")
+    void delete(@PathVariable Long notaFiscalId) {
+        notaFiscalService.delete(notaFiscalId);
     }
 }

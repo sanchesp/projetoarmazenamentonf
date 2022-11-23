@@ -28,4 +28,6 @@ public class Remetente implements Serializable {
     @OneToMany
     private List<NotaFiscal> notaFiscais;
 
+    public Remetente(Long l, ClassificacaoPessoa pessoaFisica, String cnpj, String razaoSocial, String telefone) {
+    }
 }
