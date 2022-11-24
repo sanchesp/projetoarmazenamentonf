@@ -6,9 +6,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Builder
 @Getter
@@ -16,11 +16,17 @@ import java.time.LocalDateTime;
 public class NotaFiscalDTO {
 
     private Long id;
+    @NotNull
     private Long numeroNotaFiscal;
+    @NotNull
     private LocalDate dataEmissao;
-    private LocalDateTime dataPrestacaoServico;
+    @NotNull
+    private LocalDate dataPrestacaoServico;
+    @NotNull
     private BigDecimal valor;
+
     private TipoNaturezaOperacao tipoNaturezaOperacao;
+
     private Remetente remetente;
 
 }

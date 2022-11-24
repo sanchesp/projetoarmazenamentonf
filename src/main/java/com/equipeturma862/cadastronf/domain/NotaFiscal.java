@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -25,7 +24,7 @@ public class NotaFiscal implements Serializable {
     private Long id;
     private Long numeroNotaFiscal;
     private LocalDate dataEmissao;
-    private LocalDateTime dataPrestacaoServico;
+    private LocalDate dataPrestacaoServico;
     private BigDecimal valor;
 
     @OneToOne(cascade = CascadeType.PERSIST)

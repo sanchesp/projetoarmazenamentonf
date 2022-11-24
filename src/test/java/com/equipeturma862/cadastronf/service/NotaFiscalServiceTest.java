@@ -4,11 +4,13 @@ import com.equipeturma862.cadastronf.builder.NotaFiscalBuilder;
 import com.equipeturma862.cadastronf.domain.NotaFiscal;
 import com.equipeturma862.cadastronf.repository.NotasFiscaisRepositoy;
 import com.equipeturma862.cadastronf.repository.RemetenteRepositoy;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,11 +43,11 @@ public class NotaFiscalServiceTest {
         NotaFiscal notaFiscal1 = NotaFiscalBuilder.retornaNotaFiscalBuilder().get();
 
         //When
-
+        Mockito.when(remetenteRepositoy.existsById(1L)).thenReturn(true);
+        Mockito.when(notasFiscaisRepositoy.save(Mockito.any(NotaFiscal.class))).thenReturn( )
+        NotaFiscal notaFiscalSave = notaFiscalService.save(notaFiscal1,1L);
         //Then
-
-
-
+        Assertions.assertNotNull(notaFiscalSave);
     }
 
 }

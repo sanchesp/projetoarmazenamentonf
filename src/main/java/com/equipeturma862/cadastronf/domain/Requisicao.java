@@ -23,6 +23,7 @@ public class Requisicao implements Serializable {
 
     private LocalDateTime dataHoraRegistro;
     private String detalheDoTrajeto;
+    private Long numeroDaAgencia;
 
     @ManyToOne
     @JoinColumn(name = "funcionario_id")
