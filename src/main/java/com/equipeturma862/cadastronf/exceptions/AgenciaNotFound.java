@@ -8,7 +8,7 @@ import com.equipeturma862.cadastronf.service.AgenciaServiceImpl;
 public class AgenciaNotFound extends RuntimeException  {
 
     public AgenciaNotFound () {
-        super("Gentileza digitar numero de agência!");
+        super("Gentileza digitar numero de identificacao da agencia.");
 
     }
 }
