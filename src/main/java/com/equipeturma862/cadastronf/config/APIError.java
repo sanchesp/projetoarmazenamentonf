@@ -14,5 +14,3 @@ public class APIError {
     private String code;
     private List<FieldErrorDTO> error;
 }
-
-}
