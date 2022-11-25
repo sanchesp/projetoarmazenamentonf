@@ -1,8 +1,10 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Agencia;
+import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.repository.AgenciaRepository;
 import lombok.RequiredArgsConstructor;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +12,13 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class AgenciaServiceImpl implements AgenciaService{
+public class AgenciaServiceImpl implements AgenciaService {
 
     private final AgenciaRepository agenciaRepository;
 
     @Override
     public List<Agencia> list(String nome) {
-        return IterableUtils.toList(agenciaRepository.findAll());
+        return IterableUtils.toList(agenciaRepository.findAll( ));
     }
 
     @Override
@@ -26,8 +28,10 @@ public class AgenciaServiceImpl implements AgenciaService{
 
     @Override
     public Agencia getById(Long id) {
-        return agenciaRepository.findById(id).get();
-    }
+        Agencia ag = new Agencia( );
+         if (ag.getNumeroDeIdentificacao( ) == null) ;
+        return agenciaRepository.findById(id).orElseThrow(AgenciaNotFound::new);
+}
 
     @Override
     public Agencia update(Long id, Agencia agencia) {

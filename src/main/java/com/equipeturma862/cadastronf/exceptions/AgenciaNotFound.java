@@ -1,6 +1,14 @@
 package com.equipeturma862.cadastronf.exceptions;
 
-public class AgenciaNotFound extends RuntimeException{
+import com.equipeturma862.cadastronf.domain.Agencia;
+import com.equipeturma862.cadastronf.repository.AgenciaRepository;
+import com.equipeturma862.cadastronf.service.AgenciaService;
+import com.equipeturma862.cadastronf.service.AgenciaServiceImpl;
 
-    public AgenciaNotFound () {super("Agencia não existe");}
+public class AgenciaNotFound extends RuntimeException  {
+
+    public AgenciaNotFound () {
+        super("Gentileza digitar numero de agência!");
+
+    }
 }
