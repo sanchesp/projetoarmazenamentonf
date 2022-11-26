@@ -3,7 +3,6 @@ package com.equipeturma862.cadastronf.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -15,9 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class NotaFiscal implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class NotaFiscal  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
