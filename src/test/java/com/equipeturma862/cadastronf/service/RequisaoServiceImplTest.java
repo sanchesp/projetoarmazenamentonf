@@ -16,9 +16,6 @@ public class RequisaoServiceImplTest {
     @Mock
     private RequisicaoRepository requisicaoRepository;
 
-    @Mock
-    private NotasFiscaisRepositoy notasFiscaisRepositoy;
-
     @InjectMocks
     private RequisicaoServiceImpl requisicaoService;
 
