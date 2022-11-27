@@ -3,6 +3,7 @@ package com.equipeturma862.cadastronf.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -22,7 +23,9 @@ public class Requisicao implements Serializable {
     private Long id;
 
     private LocalDateTime dataHoraRegistro;
+    @NotNull
     private String detalheDoTrajeto;
+    @NotNull
     private Long numeroDaAgencia;
 
     @ManyToOne

@@ -8,10 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class NotaFiscalServiceTest {
@@ -36,18 +33,23 @@ public class NotaFiscalServiceTest {
 
 
     @Test
-    @DisplayName("Não pode receber numeros de NF iguais")
-    public void numeroDeNFIguais (){
+    @DisplayName("Deve salvar uma nota fiscal quando houve remetente cadastrado e não houve um numero de nota fiscal cadastrada para esse remetente")
+    public void deveSalvarUmaNotaFiscal (){
         //Given
 
-        NotaFiscal notaFiscal1 = NotaFiscalBuilder.retornaNotaFiscalBuilder().get();
+        NotaFiscal notaFiscal = Mockito.mock(NotaFiscal.class);
 
         //When
-        Mockito.when(remetenteRepositoy.existsById(1L)).thenReturn(true);
-        Mockito.when(notasFiscaisRepositoy.save(Mockito.any(NotaFiscal.class))).thenReturn();
-        NotaFiscal notaFiscalSave = notaFiscalService.save(notaFiscal1,1L);
+        Mockito.when(remetenteRepositoy.existsById((ArgumentMatchers.any())).theReturn(true);
+        Mockito.when(notasFiscaisRepositoy.existsByNumeroNotaFiscal(ArgumentMatchers.any())).thenReturn(false);
+
         //Then
-        Assertions.assertNotNull(notaFiscalSave);
+        notaFiscalService.save(notaFiscal, 1L);
+        Mockito.verify(remetenteRepositoy, Mockito.times(1)).existsById(ArgumentMatchers.any());
+        Mockito.verify(notasFiscaisRepositoy, Mockito.times(1)).save(ArgumentMatchers.any(NotaFiscal.class));
+        Mockito.verify(notasFiscaisRepositoy, Mockito.times(1)).existsByNumeroNotaFiscal(ArgumentMatchers.any());
+        Mockito.verify(notasFiscaisRepositoy, Mockito.never()).existsByDataEmissao(ArgumentMatchers.any());
+
     }
 
 }
