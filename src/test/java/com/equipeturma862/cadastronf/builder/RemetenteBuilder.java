@@ -3,6 +3,7 @@ package com.equipeturma862.cadastronf.builder;
 import com.equipeturma862.cadastronf.domain.Remetente;
 
 import static com.equipeturma862.cadastronf.domain.ClassificacaoPessoa.PESSOA_FISICA;
+import static com.equipeturma862.cadastronf.domain.ClassificacaoPessoa.PESSOA_JURRIDICA;
 
 public class RemetenteBuilder {
 

@@ -22,6 +22,7 @@ public class Remetente implements Serializable {
     private Long id;
     private ClassificacaoPessoa tipoDePessoa;
     private String CNPJ;
+    private String CPF;
     private String razaoSocial;
     private String telefone;
 
@@ -30,4 +31,7 @@ public class Remetente implements Serializable {
 
     public Remetente(Long l, ClassificacaoPessoa pessoaFisica, String cnpj, String razaoSocial, String telefone) {
     }
+
+    @ManyToOne
+    private Agencia agencia;
 }

@@ -1,5 +1,6 @@
 package com.equipeturma862.cadastronf.service;
 
+import com.equipeturma862.cadastronf.domain.ClassificacaoPessoa;
 import com.equipeturma862.cadastronf.domain.NotaFiscal;
 import com.equipeturma862.cadastronf.domain.Remetente;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalExists;
@@ -20,6 +21,7 @@ public class NotaFiscalServiceImpl implements NotaFiscalService{
     private final NotasFiscaisRepositoy notasFiscaisRepositoy;
     private final RemetenteRepositoy remetenteRepositoy;
 
+
     @Override
     public List<NotaFiscal> list(String nome) {
         return IterableUtils.toList(notasFiscaisRepositoy.findAll());
@@ -28,15 +30,10 @@ public class NotaFiscalServiceImpl implements NotaFiscalService{
     @Override
     public NotaFiscal save(NotaFiscal notaFiscal, Long remetenteId) {
         if (remetenteRepositoy.existsById(remetenteId)) {
-            if (notasFiscaisRepositoy.existsByNumeroNotaFiscal(notaFiscal.getNumeroNotaFiscal())) {
-                if (notasFiscaisRepositoy.existsByDataEmissao(notaFiscal.getDataEmissao())) {
+            if (notasFiscaisRepositoy.existsByNumeroNotaFiscal(notaFiscal.getNumeroNotaFiscal()) &&
+                    notasFiscaisRepositoy.existsByDataEmissao(notaFiscal.getDataEmissao()))
+            {
                     throw new NotaFiscalExists();
-                }else {
-                    Remetente remetenteBuilder = Remetente.builder()
-                            .id(remetenteId).build();
-                    notaFiscal.setRemetente(remetenteBuilder);
-                    return notasFiscaisRepositoy.save(notaFiscal);
-                }
             }else {
                     Remetente remetenteBuilder = Remetente.builder()
                             .id(remetenteId).build();

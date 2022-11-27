@@ -25,7 +25,7 @@ public class NotaFiscalController {
                 .valor(notaFiscalDTO.getValor())
                 .tipoNaturezaOperacao(notaFiscalDTO.getTipoNaturezaOperacao())
                 .remetente(notaFiscalDTO.getRemetente()).build();
-        return notaFiscalService.save( notafiscalBuilder, remetenteId);
+        return notaFiscalService.save(notafiscalBuilder, remetenteId);
     }
 
     @GetMapping

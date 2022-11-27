@@ -15,6 +15,7 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 	
    private final RequisicaoRepository requisicaoRepository;
 
+
 	    @Override
 	    public List<Requisicao> list (String nome) {
 	        return IterableUtils.toList(requisicaoRepository.findAll());

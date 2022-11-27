@@ -32,7 +32,7 @@ public class RemetenteController {
         return remetenteService.getById(remetenteId);
     }
     @PostMapping
-    Remetente save(@RequestBody @Valid RemetenteDTO remetenteDTO) {
+    Remetente save(@RequestBody @Valid RemetenteDTO remetenteDTO, @PathVariable Long agenciaId) {
         Remetente remetenteBuilder = Remetente.builder()
                 .id(remetenteDTO.getId())
                 .tipoDePessoa(remetenteDTO.getTipoDePessoa())
@@ -40,7 +40,7 @@ public class RemetenteController {
                 .razaoSocial(remetenteDTO.getRazaoSocial())
                 .telefone(remetenteDTO.getTelefone())
                 .build();
-        return remetenteService.save(remetenteBuilder);
+        return remetenteService.save(remetenteBuilder, agenciaId);
     }
 
     @PutMapping("{remetenteId}")

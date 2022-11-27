@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface AgenciaService {
     List<Agencia> list(String nome);
-    Agencia save(Agencia agencia);
+    Agencia save(Agencia agencia, Long agenciaId);
+
     Agencia getById(Long id);
     Agencia update(Long id, Agencia agencia);
     void delete(Long id);;

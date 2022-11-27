@@ -2,6 +2,8 @@ package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Agencia;
 import com.equipeturma862.cadastronf.domain.Funcionario;
+import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
+import com.equipeturma862.cadastronf.exceptions.FuncionarioExists;
 import com.equipeturma862.cadastronf.repository.AgenciaRepository;
 import com.equipeturma862.cadastronf.repository.FuncionarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,10 +28,19 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     @Override
     public Funcionario save(Funcionario funcionario, Long agenciaId) {
         if (agenciaRepository.existsById(agenciaId)){
-            Agencia agenciaBuilder = Agencia.builder()
-            .id(agenciaId).build();
-            funcionario.setAgencia(agenciaBuilder);}
-        return funcionarioRepository.save(funcionario);
+            if(funcionarioRepository.existByFuncional(funcionario.getFuncional())) {
+                throw new FuncionarioExists();
+            } else if(funcionarioRepository.existByEmail(funcionario.getEmail())){
+                throw new FuncionarioExists();
+            } else {
+                Agencia agenciaBuilder = Agencia.builder()
+                .id(agenciaId).build();
+                funcionario.setAgencia(agenciaBuilder);
+                return funcionarioRepository.save(funcionario);
+            }
+        } else {
+            throw new AgenciaNotFound();
+        }
     }
 
     @Override

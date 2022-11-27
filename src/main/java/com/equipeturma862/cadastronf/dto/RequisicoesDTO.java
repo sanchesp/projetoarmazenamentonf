@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Builder
@@ -15,7 +16,9 @@ public class RequisicoesDTO {
 
     private Long id;
     private LocalDateTime dataHoraRegistro;
+    @NotNull
     private String detalheDoTrajeto;
+    @NotNull
     private Funcionario funcionarioSolicitante;
     private NotaFiscal notaFiscal;
 }

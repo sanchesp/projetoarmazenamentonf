@@ -1,10 +1,10 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Agencia;
+import com.equipeturma862.cadastronf.exceptions.AgenciaExists;
 import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.repository.AgenciaRepository;
 import lombok.RequiredArgsConstructor;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +22,20 @@ public class AgenciaServiceImpl implements AgenciaService {
     }
 
     @Override
-    public Agencia save(Agencia agencia) {
-        return agenciaRepository.save(agencia);
+    public Agencia save(Agencia agencia, Long agenciaId) {
+        if(agenciaRepository.existsById(agenciaId)){
+            if(agenciaRepository.existFuncional(agencia.getNumeroDeIdentificacao())){
+                throw new AgenciaExists();
+            }  } else {
+            Agencia agenciaBuilder = Agencia
+                    .builder()
+                    .id(agenciaId)
+                    .build();
+            return agenciaRepository.save(agencia);
+        }
+        throw new AgenciaNotFound();
     }
+
 
     @Override
     public Agencia getById(Long id) {
