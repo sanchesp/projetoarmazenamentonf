@@ -7,7 +7,7 @@ import com.equipeturma862.cadastronf.service.*;
 public class NotaFiscalNotFound extends RuntimeException  {
 	
 	public NotaFiscalNotFound() {
-		super("Por favor digitar o numero da Nota Fiscal");
+		super("Por favor digitar o numero da nota fiscal");
 		
 	}
 
