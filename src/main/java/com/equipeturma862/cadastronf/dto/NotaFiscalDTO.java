@@ -16,7 +16,6 @@ import java.time.LocalDate;
 public class NotaFiscalDTO {
 
     private Long id;
-    @NotNull
     private Long numeroNotaFiscal;
     @NotNull
     private LocalDate dataEmissao;

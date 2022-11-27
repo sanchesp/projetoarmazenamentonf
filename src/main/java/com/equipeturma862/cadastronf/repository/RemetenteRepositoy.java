@@ -10,4 +10,6 @@ public interface RemetenteRepositoy extends CrudRepository<Remetente, Long> {
     boolean existCPF (String cpf);
     boolean existCNPJ (String cnpj);
     boolean existsById (Long id);
+
+
 }
