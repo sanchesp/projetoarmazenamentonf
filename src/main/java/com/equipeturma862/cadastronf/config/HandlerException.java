@@ -1,9 +1,6 @@
 package com.equipeturma862.cadastronf.config;
 
-import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
-import com.equipeturma862.cadastronf.exceptions.FuncionarioNotFound;
-import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
-import com.equipeturma862.cadastronf.exceptions.RemetenteNotFound;
+import com.equipeturma862.cadastronf.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -55,6 +52,92 @@ import java.util.List;
                     .build();
             return apiError;
         }
+        @ExceptionHandler({AgenciaExists.class})
+        @ResponseStatus(HttpStatus.CONFLICT)
+        public APIError handlerExceptionAgenciaExists(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0005")
+                    .build();
+            return apiError;
+        }
+
+        @ExceptionHandler({FuncionarioExists.class})
+        @ResponseStatus(HttpStatus.CONFLICT)
+        public APIError handlerExceptionFuncionarioExists(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0006")
+                    .build();
+            return apiError;
+        }
+        @ExceptionHandler({NotaFiscalExists.class})
+        @ResponseStatus(HttpStatus.CONFLICT)
+        public APIError handlerExceptionNotaFiscalExists(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0007")
+                    .build();
+            return apiError;
+        }
+        @ExceptionHandler({RemetenteExists.class})
+        @ResponseStatus(HttpStatus.CONFLICT)
+        public APIError handlerExceptionRemetenteExists(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0008")
+                    .build();
+            return apiError;
+        }
+
+        @ExceptionHandler({RequisicaoNotFound.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionRequisicaoNotFound(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0009")
+                    .build();
+            return apiError;
+        }
+
+        @ExceptionHandler({TipoNaturezaNotFound.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionTipoNaturezaNotFound(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0010")
+                    .build();
+            return apiError;
+        }
+
+        @ExceptionHandler({FileNotaFiscalNotFound.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionFileNotaFiscalNotFound(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0011")
+                    .build();
+            return apiError;
+        }
+        @ExceptionHandler({ValidationRequired.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionValidationRequired(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0012")
+                    .build();
+            return apiError;
+        }
+
+        @ExceptionHandler({FuncionarioSolicitante.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionFuncionarioSolicitante(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0013")
+                    .build();
+            return apiError;
+        }
         @ExceptionHandler(MaxUploadSizeExceededException.class)
         public APIError handleMaxSizeException(MaxUploadSizeExceededException exc) {
             return APIError.builder().message("File too large!").build();
@@ -72,11 +155,10 @@ import java.util.List;
 
             APIError apiError = APIError.builder()
                     .message("Validation failed for argument")
-                    .code("ERROR0001")
+                    .code("ERROR0000")
                     .error(errors)
                     .build();
             return apiError;
         }
-
     }
 
