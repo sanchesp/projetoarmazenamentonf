@@ -1,6 +1,7 @@
 package com.equipeturma862.cadastronf.config;
 
 import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
+import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,10 +17,19 @@ import java.util.List;
 
         @ExceptionHandler({AgenciaNotFound.class})
         @ResponseStatus(HttpStatus.NOT_FOUND)
-        public APIError handlerExceptionNotFound(Exception exception) {
+        public APIError handlerExceptionAgenciaNotFound(Exception exception) {
             APIError apiError = APIError.builder()
                     .message(exception.getMessage())
                     .code("ERROR0001")
+                    .build();
+            return apiError;
+        }
+        @ExceptionHandler({NotaFiscalNotFound.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionNotaFiscalNotFound(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0002")
                     .build();
             return apiError;
         }

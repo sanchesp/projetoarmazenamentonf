@@ -3,6 +3,7 @@ package com.equipeturma862.cadastronf.service;
 import com.equipeturma862.cadastronf.builder.NotaFiscalBuilder;
 import com.equipeturma862.cadastronf.domain.NotaFiscal;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalExists;
+import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
 import com.equipeturma862.cadastronf.exceptions.RemetenteNotFound;
 import com.equipeturma862.cadastronf.repository.NotasFiscaisRepositoy;
 import com.equipeturma862.cadastronf.repository.RemetenteRepositoy;
@@ -31,12 +32,13 @@ public class NotaFiscalServiceTest {
 
     @Test
     @DisplayName("Deve salvar uma nota fiscal quando houve remetente cadastrado e não houve um numero de nota fiscal cadastrada para esse remetente")
-    public void deveSalvarUmaNotaFiscalQuandoHouverUmRemetenteCadastradoENãoExisterONumeroDaNF  () {
+    public void deveSalvarUmaNotaFiscalQuandoHouverUmRemetenteCadastradoENaoExisterONumeroDaNF  () {
        //Given
         NotaFiscal notaFiscal = NotaFiscalBuilder.retornaNotaFiscalBuilder().get();
         //When
         Mockito.when(remetenteRepositoy.existsById(ArgumentMatchers.any())).thenReturn(true);
         Mockito.when(notasFiscaisRepositoy.existsByNumeroNotaFiscal(ArgumentMatchers.any())).thenReturn(false);
+        Mockito.when(notasFiscaisRepositoy.existsByDataEmissao(ArgumentMatchers.any())).thenReturn(false);
         Mockito.when(notasFiscaisRepositoy.save(ArgumentMatchers.any(NotaFiscal.class))).thenReturn(notaFiscal);
         //Then
 
@@ -99,6 +101,18 @@ public class NotaFiscalServiceTest {
         //Then
         Assertions.assertThrows(NotaFiscalExists.class, () -> notaFiscalService.save(notaFiscal,1L));
 
+    }
+
+    @Test
+    public void DeveUtualizarOsDadosDaNFSeExistirOID(){
+        //Given
+        NotaFiscal notaFiscal = Mockito.mock(NotaFiscal.class);
+
+        //When
+        Mockito.when(notasFiscaisRepositoy.existsById(notaFiscal.getId())).thenReturn(false);
+
+        //Then
+        Assertions.assertThrows(NotaFiscalNotFound.class, () -> notaFiscalService.getById(1L));
     }
 }
 

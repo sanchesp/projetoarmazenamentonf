@@ -34,6 +34,7 @@ public class NotaFiscalController {
         List<NotaFiscal> list = notaFiscalService.list(nome);
 
         return list.stream().map(notaFiscal -> NotaFiscalDTO.builder()
+                .id(notaFiscal.getId())
                 .numeroNotaFiscal(notaFiscal.getNumeroNotaFiscal())
                 .dataEmissao(notaFiscal.getDataEmissao())
                 .dataPrestacaoServico(notaFiscal.getDataPrestacaoServico())
@@ -41,7 +42,7 @@ public class NotaFiscalController {
                 .tipoNaturezaOperacao(notaFiscal.getTipoNaturezaOperacao())
                 .remetente(notaFiscal.getRemetente()).build()).toList();
     }
-    @GetMapping("{notaFiscaiId}")
+    @GetMapping("{notaFiscalId}")
     NotaFiscal getById(@PathVariable Long notaFiscalId) {
         return notaFiscalService.getById(notaFiscalId);
     }

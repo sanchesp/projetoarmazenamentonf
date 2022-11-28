@@ -30,4 +30,6 @@ public class NotaFiscal  {
     @ManyToOne
     private Remetente remetente;
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private FileNotaFiscal fileNotaFiscal;
 }

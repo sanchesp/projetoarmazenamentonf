@@ -13,6 +13,7 @@ public class RemetenteDTO {
     private Long id;
     private ClassificacaoPessoa tipoDePessoa;
     private String CNPJ;
+    private String CPF;
     private String razaoSocial;
     private String telefone;
 }

@@ -29,6 +29,4 @@ public class Remetente implements Serializable {
     @OneToMany
     private List<NotaFiscal> notaFiscais;
 
-    @ManyToOne
-    private Agencia agencia;
 }

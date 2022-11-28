@@ -1,7 +1,7 @@
 package com.equipeturma862.cadastronf.service;
 
 
-import com.equipeturma862.cadastronf.builder.RequisicaoBuider;
+import com.equipeturma862.cadastronf.builder.RequisicaoBuilder;
 import com.equipeturma862.cadastronf.domain.Requisicao;
 import com.equipeturma862.cadastronf.repository.NotasFiscaisRepositoy;
 import com.equipeturma862.cadastronf.repository.RequisicaoRepository;
@@ -31,7 +31,7 @@ public class RequisaoServiceImplTest {
     @DisplayName("Deve salvar uma requisição")
     public void deveSalvarUmaRequisicao() {
         //Given
-        Requisicao requisicao = RequisicaoBuider.retornarRequisicaoBuilder().get();
+        Requisicao requisicao = RequisicaoBuilder.retornarRequisicaoBuilder().get();
         //When
         Mockito.when(requisicaoRepository.existsById(ArgumentMatchers.any())).thenReturn(true);
 
