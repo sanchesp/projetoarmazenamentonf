@@ -1,7 +1,9 @@
 package com.equipeturma862.cadastronf.config;
 
 import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
+import com.equipeturma862.cadastronf.exceptions.FuncionarioNotFound;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
+import com.equipeturma862.cadastronf.exceptions.RemetenteNotFound;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -30,6 +32,26 @@ import java.util.List;
             APIError apiError = APIError.builder()
                     .message(exception.getMessage())
                     .code("ERROR0002")
+                    .build();
+            return apiError;
+        }
+
+        @ExceptionHandler({FuncionarioNotFound.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionFuncionarioNotFound(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0003")
+                    .build();
+            return apiError;
+        }
+
+        @ExceptionHandler({RemetenteNotFound.class})
+        @ResponseStatus(HttpStatus.NOT_FOUND)
+        public APIError handlerExceptionRemetenteNotFound(Exception exception) {
+            APIError apiError = APIError.builder()
+                    .message(exception.getMessage())
+                    .code("ERROR0004")
                     .build();
             return apiError;
         }
