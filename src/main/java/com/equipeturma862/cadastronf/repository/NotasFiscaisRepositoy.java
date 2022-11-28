@@ -11,6 +11,4 @@ public interface NotasFiscaisRepositoy extends CrudRepository<NotaFiscal, Long> 
 
     boolean existsByNumeroNotaFiscal(Long numeroNotaFiscal);
     boolean existsByDataEmissao(LocalDate dataEmisao);
-
-
 }

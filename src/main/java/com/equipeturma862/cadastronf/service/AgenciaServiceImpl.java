@@ -23,11 +23,10 @@ public class AgenciaServiceImpl implements AgenciaService {
 
     @Override
     public Agencia save(Agencia agencia) {
-            if(agenciaRepository.existsByNumeroDeIdentificacao(agencia.getNumeroDeIdentificacao())){
-                throw new AgenciaExists();
-            }   else {
-            return agenciaRepository.save(agencia);
+        if(agenciaRepository.existsByNumeroDeIdentificacao(agencia.getNumeroDeIdentificacao())){
+            throw new AgenciaExists();
         }
+        return agenciaRepository.save(agencia);
     }
 
     @Override

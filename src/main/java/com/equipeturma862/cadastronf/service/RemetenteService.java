@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RemetenteService {
     List<Remetente> list(String nome);
-    Remetente save(Remetente remetente, Long agenciaId);
+    Remetente save(Remetente remetente);
 
     Remetente getById(Long id);
 
