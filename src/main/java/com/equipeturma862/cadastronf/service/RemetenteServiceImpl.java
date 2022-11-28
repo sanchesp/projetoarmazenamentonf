@@ -2,7 +2,9 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Remetente;
+import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.exceptions.RemetenteExists;
+import com.equipeturma862.cadastronf.exceptions.RemetenteNotFound;
 import com.equipeturma862.cadastronf.repository.AgenciaRepository;
 import com.equipeturma862.cadastronf.repository.RemetenteRepositoy;
 import lombok.RequiredArgsConstructor;
@@ -43,12 +45,17 @@ public class RemetenteServiceImpl implements RemetenteService{
 
     @Override
     public Remetente update(Long id, Remetente remetente) {
-        remetente.setId(Long.valueOf(id));
-        return remetenteRepository.save(remetente);
+        if(remetenteRepository.existsById(id)) {
+            remetente.setId(id);
+            return remetenteRepository.save(remetente);
+        } throw new RemetenteNotFound();
     }
 
     @Override
     public void delete(Long id) {
-        remetenteRepository.deleteById(id);
+        if(remetenteRepository.existsById(id)) {
+            remetenteRepository.deleteById(id);
+        }
+        throw new RemetenteNotFound();
     }
 }

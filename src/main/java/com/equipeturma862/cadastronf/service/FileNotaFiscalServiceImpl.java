@@ -1,6 +1,8 @@
 package com.equipeturma862.cadastronf.service;
 
+import com.equipeturma862.cadastronf.domain.Agencia;
 import com.equipeturma862.cadastronf.domain.FileNotaFiscal;
+import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.exceptions.FileNotaFiscalNotFound;
 import com.equipeturma862.cadastronf.repository.FileNotaFiscalRepository;
 import lombok.RequiredArgsConstructor;
@@ -36,4 +38,5 @@ public class FileNotaFiscalServiceImpl implements FileNotaFiscalService{
     public List<FileNotaFiscal> listAll() {
         return IterableUtils.toList(fileNotaFiscalRepository.findAll());
     }
+
 }

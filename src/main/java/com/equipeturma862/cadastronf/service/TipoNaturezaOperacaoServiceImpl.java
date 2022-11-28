@@ -1,6 +1,8 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.TipoNaturezaOperacao;
+import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
+import com.equipeturma862.cadastronf.exceptions.TipoNaturezaNotFound;
 import com.equipeturma862.cadastronf.repository.TipoNaturezaOperacaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
@@ -30,12 +32,17 @@ public class TipoNaturezaOperacaoServiceImpl implements TipoNaturezaOperacaoServ
 
     @Override
     public TipoNaturezaOperacao update(Long id, TipoNaturezaOperacao tipoNaturezaOperacao) {
-        tipoNaturezaOperacao.setId(id);
-        return tipoNaturezaOperacaoRepository.save(tipoNaturezaOperacao);
+        if(tipoNaturezaOperacaoRepository.existsById(id)) {
+            tipoNaturezaOperacao.setId(id);
+            return tipoNaturezaOperacaoRepository.save(tipoNaturezaOperacao);
+        } throw new TipoNaturezaNotFound();
     }
 
     @Override
     public void delete(Long id) {
-        tipoNaturezaOperacaoRepository.deleteById(id);
+        if(tipoNaturezaOperacaoRepository.existsById(id)) {
+            tipoNaturezaOperacaoRepository.deleteById(id);
+        }
+        throw new TipoNaturezaNotFound();
     }
 }

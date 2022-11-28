@@ -1,7 +1,9 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Requisicao;
+import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.exceptions.FuncionarioSolicitante;
+import com.equipeturma862.cadastronf.exceptions.RequisicaoNotFound;
 import com.equipeturma862.cadastronf.repository.RequisicaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
@@ -38,13 +40,18 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 
 	    @Override
 	    public Requisicao update(Long id, Requisicao requisicao) {
-	        requisicao.setId(id);
-	        return requisicaoRepository.save(requisicao);
+			if(requisicaoRepository.existsById(id)) {
+				requisicao.setId(id);
+				return requisicaoRepository.save(requisicao);
+			} throw new RequisicaoNotFound();
 	    }
 
 	    @Override
 	    public void delete(Long id) {
-	    	requisicaoRepository.deleteById(id);
+			if(requisicaoRepository.existsById(id)) {
+				requisicaoRepository.deleteById(id);
+			}
+			throw new RequisicaoNotFound();
 	    }
 	   
 }
