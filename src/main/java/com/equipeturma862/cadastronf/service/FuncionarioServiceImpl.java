@@ -28,9 +28,9 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     @Override
     public Funcionario save(Funcionario funcionario, Long agenciaId) {
         if (agenciaRepository.existsById(agenciaId)){
-            if(funcionarioRepository.existByFuncional(funcionario.getFuncional())) {
+            if(funcionarioRepository.existsByFuncional(funcionario.getFuncional())) {
                 throw new FuncionarioExists();
-            } else if(funcionarioRepository.existByEmail(funcionario.getEmail())){
+            } else if(funcionarioRepository.existsByEmail(funcionario.getEmail())){
                 throw new FuncionarioExists();
             } else {
                 Agencia agenciaBuilder = Agencia.builder()

@@ -32,14 +32,14 @@ public class AgenciaController {
         return agenciaService.getById(agenciaId);
     }
     @PostMapping
-    Agencia save(@RequestBody @Valid AgenciaDTO agenciaDTO, @PathVariable Long agenciaId) {
+    Agencia save(@RequestBody @Valid AgenciaDTO agenciaDTO) {
         Agencia agencias = Agencia.builder()
                 .nome(agenciaDTO.getNome())
                 .id(agenciaDTO.getId())
                 .numeroDeIdentificacao(agenciaDTO.getNumeroDeIdentificacao())
                 .email(agenciaDTO.getEmail())
                 .build();
-        return agenciaService.save(agencias, agenciaId);
+        return agenciaService.save(agencias);
     }
 
     @PutMapping("{agenciaId}")

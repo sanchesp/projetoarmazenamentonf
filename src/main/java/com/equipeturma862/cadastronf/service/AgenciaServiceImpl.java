@@ -22,20 +22,13 @@ public class AgenciaServiceImpl implements AgenciaService {
     }
 
     @Override
-    public Agencia save(Agencia agencia, Long agenciaId) {
-        if(agenciaRepository.existsById(agenciaId)){
-            if(agenciaRepository.existFuncional(agencia.getNumeroDeIdentificacao())){
+    public Agencia save(Agencia agencia) {
+            if(agenciaRepository.existsByNumeroDeIdentificacao(agencia.getNumeroDeIdentificacao())){
                 throw new AgenciaExists();
-            }  } else {
-            Agencia agenciaBuilder = Agencia
-                    .builder()
-                    .id(agenciaId)
-                    .build();
+            }   else {
             return agenciaRepository.save(agencia);
         }
-        throw new AgenciaNotFound();
     }
-
 
     @Override
     public Agencia getById(Long id) {

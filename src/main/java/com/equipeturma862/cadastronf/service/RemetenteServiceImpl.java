@@ -28,8 +28,8 @@ public class RemetenteServiceImpl implements RemetenteService{
     @Override
     public Remetente save(Remetente remetente, Long agenciaId) {
         if (agenciaRepository.existsById(agenciaId)){
-            if(remetenteRepository.existCPF(remetente.getCPF()) &&
-                    remetenteRepository.existCNPJ(remetente.getCNPJ())) {
+            if(remetenteRepository.existsByCPF(remetente.getCPF()) &&
+                    remetenteRepository.existsByCNPJ(remetente.getCNPJ())) {
                 throw new RemetenteExists();
             } else {
                 Remetente remetenteBuilder = Remetente

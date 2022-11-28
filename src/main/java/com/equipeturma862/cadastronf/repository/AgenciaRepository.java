@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AgenciaRepository extends CrudRepository<Agencia, Long > {
 
-    boolean existFuncional (Long numeroFuncional);
+    boolean existsByNumeroDeIdentificacao (Long numeroDeIdentificacao);
 }
