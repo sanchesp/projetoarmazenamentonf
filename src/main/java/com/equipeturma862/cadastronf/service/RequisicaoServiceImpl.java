@@ -21,7 +21,7 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 
 	    @Override
 	    public List<Requisicao> list (String nome) {
-	        return IterableUtils.toList(requisicaoRepository.findAll());
+			return IterableUtils.toList(requisicaoRepository.findAll());
 	    }
 
 	    @Override
@@ -35,7 +35,7 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 
 	    @Override
 	    public Requisicao getById(Long id) {
-	        return requisicaoRepository.findById(id).get();
+			return requisicaoRepository.findById(id).get();
 	    }
 
 	    @Override

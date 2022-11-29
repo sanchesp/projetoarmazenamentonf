@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RemetenteRepositoy extends CrudRepository<Remetente, Long> {
+public interface RemetenteRepository extends CrudRepository<Remetente, Long> {
 
     boolean existsByCPF (String cpf);
     boolean existsByCNPJ (String cnpj);

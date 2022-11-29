@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 
 @Repository
-public interface NotasFiscaisRepositoy extends CrudRepository<NotaFiscal, Long> {
+public interface NotasFiscaisRepository extends CrudRepository<NotaFiscal, Long> {
 
     boolean existsByNumeroNotaFiscal(Long numeroNotaFiscal);
     boolean existsByDataEmissao(LocalDate dataEmisao);

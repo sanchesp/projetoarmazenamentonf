@@ -5,8 +5,8 @@ import com.equipeturma862.cadastronf.domain.Remetente;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalExists;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
 import com.equipeturma862.cadastronf.exceptions.RemetenteNotFound;
-import com.equipeturma862.cadastronf.repository.NotasFiscaisRepositoy;
-import com.equipeturma862.cadastronf.repository.RemetenteRepositoy;
+import com.equipeturma862.cadastronf.repository.NotasFiscaisRepository;
+import com.equipeturma862.cadastronf.repository.RemetenteRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Service;
@@ -18,51 +18,51 @@ import java.util.List;
 public class NotaFiscalServiceImpl implements NotaFiscalService{
 
 
-    private final NotasFiscaisRepositoy notasFiscaisRepositoy;
-    private final RemetenteRepositoy remetenteRepositoy;
+    private final NotasFiscaisRepository notasFiscaisRepository;
+    private final RemetenteRepository remetenteRepository;
 
 
     @Override
     public List<NotaFiscal> list(String nome) {
-        return IterableUtils.toList(notasFiscaisRepositoy.findAll());
+        return IterableUtils.toList(notasFiscaisRepository.findAll());
     }
 
     @Override
     public NotaFiscal save(NotaFiscal notaFiscal, Long remetenteId) {
-        if (remetenteRepositoy.existsById(remetenteId)) {
-            if (notasFiscaisRepositoy.existsByNumeroNotaFiscal(notaFiscal.getNumeroNotaFiscal()) &&
-                    notasFiscaisRepositoy.existsByDataEmissao(notaFiscal.getDataEmissao())) {
+        if (remetenteRepository.existsById(remetenteId)) {
+            if (notasFiscaisRepository.existsByNumeroNotaFiscal(notaFiscal.getNumeroNotaFiscal()) &&
+                    notasFiscaisRepository.existsByDataEmissao(notaFiscal.getDataEmissao())) {
                 throw new NotaFiscalExists();
             }else {
                     Remetente remetenteBuilder = Remetente.builder()
                             .id(remetenteId).build();
                     notaFiscal.setRemetente(remetenteBuilder);
-                    return notasFiscaisRepositoy.save(notaFiscal);
+                    return notasFiscaisRepository.save(notaFiscal);
                 }
         }throw new RemetenteNotFound();
     }
 
     @Override
     public NotaFiscal getById(Long id) {
-        if (notasFiscaisRepositoy.existsById(id)) {
-            return notasFiscaisRepositoy.findById(id).get();
+        if (notasFiscaisRepository.existsById(id)) {
+            return notasFiscaisRepository.findById(id).get();
         }
         throw new NotaFiscalNotFound();
     }
 
     @Override
     public NotaFiscal update(Long id, NotaFiscal notaFiscal) {
-        if (notasFiscaisRepositoy.existsById(id)) {
+        if (notasFiscaisRepository.existsById(id)) {
             notaFiscal.setId(id);
-            return notasFiscaisRepositoy.save(notaFiscal);
+            return notasFiscaisRepository.save(notaFiscal);
         }
         throw new NotaFiscalNotFound();
     }
 
     @Override
     public void delete(Long id) {
-        if (notasFiscaisRepositoy.existsById(id)) {
-            notasFiscaisRepositoy.deleteById(id);
+        if (notasFiscaisRepository.existsById(id)) {
+            notasFiscaisRepository.deleteById(id);
         } else {throw new NotaFiscalNotFound();}
     }
 }

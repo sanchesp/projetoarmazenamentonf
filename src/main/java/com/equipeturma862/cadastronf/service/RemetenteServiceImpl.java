@@ -2,11 +2,10 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Remetente;
-import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.exceptions.RemetenteExists;
 import com.equipeturma862.cadastronf.exceptions.RemetenteNotFound;
 import com.equipeturma862.cadastronf.repository.AgenciaRepository;
-import com.equipeturma862.cadastronf.repository.RemetenteRepositoy;
+import com.equipeturma862.cadastronf.repository.RemetenteRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class RemetenteServiceImpl implements RemetenteService{
-    private final RemetenteRepositoy remetenteRepository;
+    private final RemetenteRepository remetenteRepository;
 
     private final AgenciaRepository agenciaRepository;
 
