@@ -4,6 +4,8 @@ import com.equipeturma862.cadastronf.domain.Agencia;
 import com.equipeturma862.cadastronf.domain.Funcionario;
 import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.exceptions.FuncionarioExists;
+import com.equipeturma862.cadastronf.exceptions.FuncionarioNotFound;
+import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
 import com.equipeturma862.cadastronf.repository.AgenciaRepository;
 import com.equipeturma862.cadastronf.repository.FuncionarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +32,6 @@ public class FuncionarioServiceImpl implements FuncionarioService{
         if (agenciaRepository.existsById(agenciaId)){
             if(funcionarioRepository.existsByFuncional(funcionario.getFuncional())) {
                 throw new FuncionarioExists();
-            } else if(funcionarioRepository.existsByEmail(funcionario.getEmail())){
-                throw new FuncionarioExists();
             } else {
                 Agencia agenciaBuilder = Agencia.builder()
                 .id(agenciaId).build();
@@ -44,18 +44,24 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     }
 
     @Override
-    public Funcionario getById(Long funcionarioId) {
-        return funcionarioRepository.findById(funcionarioId).get();
+    public Funcionario getById(Long id) {
+        return funcionarioRepository.findById(id).get();
     }
 
     @Override
-    public Funcionario update(Long funcionarioId, Funcionario funcionario) {
-        funcionario.setId(funcionarioId);
-        return funcionarioRepository.save(funcionario);
+    public Funcionario update(Long id, Funcionario funcionario) {
+        if(funcionarioRepository.existsById(id)) {
+            funcionario.setId(id);
+            return funcionarioRepository.save(funcionario);
+        } throw new FuncionarioNotFound();
     }
 
     @Override
-    public void delete(Long funcionarioId) {
-        funcionarioRepository.deleteById(funcionarioId);
+    public void delete(Long id) {
+        if (funcionarioRepository.existsById(id)) {
+            funcionarioRepository.deleteById(id);
+        } else {
+            throw new FuncionarioNotFound();
+        }
     }
 }

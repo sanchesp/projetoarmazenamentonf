@@ -36,7 +36,6 @@ public class RemetenteServiceImpl implements RemetenteService{
     }
 
 
-
     @Override
     public Remetente getById(Long id) {
         return remetenteRepository.findById(id).get();

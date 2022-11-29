@@ -21,7 +21,8 @@ public class FuncionarioController {
         Funcionario funcionarioBuilder = Funcionario.builder()
                 .nome(funcionarioDTO.getNome())
                 .funcional(funcionarioDTO.getFuncional())
-                .email(funcionarioDTO.getEmail()).build();
+                .email(funcionarioDTO.getEmail())
+                .build();
         return funcionarioService.save(funcionarioBuilder, agenciaId);
     }
 

@@ -7,6 +7,6 @@ import com.equipeturma862.cadastronf.service.*;
 public class RemetenteNotFound extends RuntimeException{
 	
 	public RemetenteNotFound () {
-		super ("Por favor digitar o nome do remente");
+		super ("Remetente não localizado");
 	}
 }

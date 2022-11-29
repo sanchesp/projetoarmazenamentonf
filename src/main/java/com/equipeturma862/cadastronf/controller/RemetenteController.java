@@ -37,6 +37,7 @@ public class RemetenteController {
                 .id(remetenteDTO.getId())
                 .tipoDePessoa(remetenteDTO.getTipoDePessoa())
                 .CNPJ(remetenteDTO.getCNPJ())
+                .CPF(remetenteDTO.getCPF())
                 .razaoSocial(remetenteDTO.getRazaoSocial())
                 .telefone(remetenteDTO.getTelefone())
                 .build();
@@ -49,6 +50,7 @@ public class RemetenteController {
                 .id(remetenteDTO.getId())
                 .tipoDePessoa(remetenteDTO.getTipoDePessoa())
                 .CNPJ(remetenteDTO.getCNPJ())
+                .CPF(remetenteDTO.getCPF())
                 .razaoSocial(remetenteDTO.getRazaoSocial())
                 .telefone(remetenteDTO.getTelefone())
                 .build();

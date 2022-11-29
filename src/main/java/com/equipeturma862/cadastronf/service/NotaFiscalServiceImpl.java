@@ -34,8 +34,10 @@ public class NotaFiscalServiceImpl implements NotaFiscalService{
                     notasFiscaisRepository.existsByDataEmissao(notaFiscal.getDataEmissao())) {
                 throw new NotaFiscalExists();
             }else {
-                    Remetente remetenteBuilder = Remetente.builder()
-                            .id(remetenteId).build();
+                    Remetente remetenteBuilder = Remetente
+                            .builder()
+                            .id(remetenteId)
+                            .build();
                     notaFiscal.setRemetente(remetenteBuilder);
                     return notasFiscaisRepository.save(notaFiscal);
                 }
@@ -63,6 +65,7 @@ public class NotaFiscalServiceImpl implements NotaFiscalService{
     public void delete(Long id) {
         if (notasFiscaisRepository.existsById(id)) {
             notasFiscaisRepository.deleteById(id);
-        } else {throw new NotaFiscalNotFound();}
+        } else {
+            throw new NotaFiscalNotFound();}
     }
 }
