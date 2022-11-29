@@ -4,6 +4,7 @@ import com.equipeturma862.cadastronf.domain.Agencia;
 import com.equipeturma862.cadastronf.domain.Funcionario;
 import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
 import com.equipeturma862.cadastronf.exceptions.FuncionarioExists;
+import com.equipeturma862.cadastronf.exceptions.FuncionarioNotFound;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
 import com.equipeturma862.cadastronf.repository.AgenciaRepository;
 import com.equipeturma862.cadastronf.repository.FuncionarioRepository;
@@ -54,7 +55,7 @@ public class FuncionarioServiceImpl implements FuncionarioService{
         if(funcionarioRepository.existsById(funcionarioId)){
             funcionario.setId(funcionarioId);
             return funcionarioRepository.save(funcionario);
-        } else {throw new NotaFiscalNotFound();
+        } else {throw new FuncionarioNotFound();
         }
     }
 
@@ -62,7 +63,7 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     public void delete(Long funcionarioId) {
         if(funcionarioRepository.existsById(funcionarioId)){
             funcionarioRepository.deleteById(funcionarioId);
-        } else {throw new NotaFiscalNotFound();
+        } else {throw new FuncionarioNotFound();
         }
     }
 }
