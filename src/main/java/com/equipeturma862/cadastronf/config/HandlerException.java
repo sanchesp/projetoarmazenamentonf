@@ -110,7 +110,7 @@ import java.util.List;
             return apiError;
         }
 
-        @ExceptionHandler({FileNotaFiscalNotFound.class})
+        @ExceptionHandler({FileNotFound.class})
         @ResponseStatus(HttpStatus.NOT_FOUND)
         public APIError handlerExceptionFileNotaFiscalNotFound(Exception exception) {
             APIError apiError = APIError.builder()

@@ -1,6 +1,6 @@
 package com.equipeturma862.cadastronf.builder;
 
-import com.equipeturma862.cadastronf.domain.FileNotaFiscal;
+import com.equipeturma862.cadastronf.domain.File;
 import com.equipeturma862.cadastronf.domain.NotaFiscal;
 import com.equipeturma862.cadastronf.domain.Remetente;
 import com.equipeturma862.cadastronf.domain.TipoNaturezaOperacao;
@@ -22,7 +22,7 @@ public class NotaFiscalBuilder {
         NotaFiscalBuilder notaFiscalBuilder = new NotaFiscalBuilder();
        notaFiscalBuilder.notaFiscal = new NotaFiscal(1L, 1234l, LocalDate.of(2022,11,01),
                LocalDate.of(2022,10,31), BigDecimal.TEN,
-                TipoNaturezaOperacao.builder().build(), Remetente.builder().build(), FileNotaFiscal.builder().build());
+                TipoNaturezaOperacao.builder().build(), Remetente.builder().build(), File.builder().build());
         return notaFiscalBuilder;
     }
 

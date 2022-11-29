@@ -5,8 +5,8 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class FileNotaFiscalDTO {
-    private String nome;
+public class FileDTO {
+    private String name;
     private String url;
     private String type;
     private long size;

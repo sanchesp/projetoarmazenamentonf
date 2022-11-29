@@ -30,5 +30,5 @@ public class NotaFiscal  {
     private Remetente remetente;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    private FileNotaFiscal fileNotaFiscal;
+    private File file;
 }
