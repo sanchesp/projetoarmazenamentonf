@@ -55,7 +55,8 @@ public class FuncionarioServiceImpl implements FuncionarioService{
         if(funcionarioRepository.existsById(funcionarioId)){
             funcionario.setId(funcionarioId);
             return funcionarioRepository.save(funcionario);
-        } else {throw new FuncionarioNotFound();
+        } else {
+            throw new FuncionarioNotFound();
         }
     }
 
@@ -63,7 +64,8 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     public void delete(Long funcionarioId) {
         if(funcionarioRepository.existsById(funcionarioId)){
             funcionarioRepository.deleteById(funcionarioId);
-        } else {throw new FuncionarioNotFound();
+        } else {
+            throw new FuncionarioNotFound();
         }
     }
 }
