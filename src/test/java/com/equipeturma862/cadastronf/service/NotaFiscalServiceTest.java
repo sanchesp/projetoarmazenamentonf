@@ -5,8 +5,8 @@ import com.equipeturma862.cadastronf.domain.NotaFiscal;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalExists;
 import com.equipeturma862.cadastronf.exceptions.NotaFiscalNotFound;
 import com.equipeturma862.cadastronf.exceptions.RemetenteNotFound;
-import com.equipeturma862.cadastronf.repository.NotasFiscaisRepositoy;
-import com.equipeturma862.cadastronf.repository.RemetenteRepositoy;
+import com.equipeturma862.cadastronf.repository.NotasFiscaisRepository;
+import com.equipeturma862.cadastronf.repository.RemetenteRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,10 +16,10 @@ import org.mockito.*;
 public class NotaFiscalServiceTest {
 
     @Mock
-    private NotasFiscaisRepositoy notasFiscaisRepositoy;
+    private NotasFiscaisRepository notasFiscaisRepositoy;
 
     @Mock
-    private RemetenteRepositoy remetenteRepositoy;
+    private RemetenteRepository remetenteRepositoy;
 
     @InjectMocks
     private NotaFiscalServiceImpl notaFiscalService;
