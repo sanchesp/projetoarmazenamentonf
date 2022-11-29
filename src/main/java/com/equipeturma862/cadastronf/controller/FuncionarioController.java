@@ -32,6 +32,7 @@ public class FuncionarioController {
         List<Funcionario> list = funcionarioService.list(nome);
 
         return list.stream().map(funcionario -> FuncionarioDTO.builder()
+                .id(funcionario.getId())
                 .nome(funcionario.getNome())
                 .funcional(funcionario.getFuncional())
                 .email(funcionario.getEmail()).build()).toList();

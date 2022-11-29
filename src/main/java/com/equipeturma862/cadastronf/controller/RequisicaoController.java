@@ -1,5 +1,7 @@
 package com.equipeturma862.cadastronf.controller;
 
+import com.equipeturma862.cadastronf.domain.Funcionario;
+import com.equipeturma862.cadastronf.domain.NotaFiscal;
 import com.equipeturma862.cadastronf.domain.Requisicao;
 import com.equipeturma862.cadastronf.dto.RequisicoesDTO;
 import com.equipeturma862.cadastronf.service.RequisicaoService;
@@ -26,6 +28,7 @@ public class RequisicaoController {
                 .id(requisicao.getId())
                 .dataHoraRegistro(requisicao.getDataHoraRegistro())
                 .detalheDoTrajeto(requisicao.getDetalheDoTrajeto())
+                .numeroDaAgenciaSolicitante(requisicao.getNumeroDaAgenciaSolicitante())
                 .funcionarioSolicitante(requisicao.getFuncionarioSolicitante())
                 .notaFiscal(requisicao.getNotaFiscal()).build()).toList();
     }
@@ -39,8 +42,11 @@ public class RequisicaoController {
                 .id(requisicoesDTO.getId())
                 .dataHoraRegistro(LocalDateTime.now())
                 .detalheDoTrajeto(requisicoesDTO.getDetalheDoTrajeto())
-                .funcionarioSolicitante(requisicoesDTO.getFuncionarioSolicitante())
-                .notaFiscal(requisicoesDTO.getNotaFiscal())
+                .numeroDaAgenciaSolicitante(requisicoesDTO.getNumeroDaAgenciaSolicitante())
+                .funcionarioSolicitante(Funcionario.builder()
+                        .id(requisicoesDTO.getFuncionarioSolicitante().getId()).build())
+                .notaFiscal(NotaFiscal.builder()
+                        .id(requisicoesDTO.getNotaFiscal().getId()).build())
                 .build();
         return requisicaoService.save(requisicaoBuilder);
     }

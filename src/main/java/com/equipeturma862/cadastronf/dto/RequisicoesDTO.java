@@ -19,6 +19,7 @@ public class RequisicoesDTO {
     @NotNull
     private String detalheDoTrajeto;
     @NotNull
+    private Long numeroDaAgenciaSolicitante;
     private Funcionario funcionarioSolicitante;
     private NotaFiscal notaFiscal;
 }

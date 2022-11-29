@@ -28,7 +28,6 @@ public class Funcionario implements Serializable {
 
     @JsonIgnoreProperties
     @ManyToOne
-    @JoinColumn(name = "agencia_id")
     private Agencia Agencia;
 
     @OneToMany

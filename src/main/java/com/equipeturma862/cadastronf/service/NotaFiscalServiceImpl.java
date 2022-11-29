@@ -21,7 +21,6 @@ public class NotaFiscalServiceImpl implements NotaFiscalService{
     private final NotasFiscaisRepository notasFiscaisRepository;
     private final RemetenteRepository remetenteRepository;
 
-
     @Override
     public List<NotaFiscal> list(String nome) {
         return IterableUtils.toList(notasFiscaisRepository.findAll());

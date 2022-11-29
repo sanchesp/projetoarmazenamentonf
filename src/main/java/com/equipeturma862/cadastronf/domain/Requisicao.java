@@ -22,13 +22,12 @@ public class Requisicao implements Serializable {
     private Long id;
     private LocalDateTime dataHoraRegistro;
     private String detalheDoTrajeto;
-    private Long numeroDaAgencia;
+    private Long numeroDaAgenciaSolicitante;
 
     @ManyToOne
-    @JoinColumn(name = "funcionario_id")
     private Funcionario funcionarioSolicitante;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     private NotaFiscal notaFiscal;
 
 }

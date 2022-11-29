@@ -1,8 +1,6 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Requisicao;
-import com.equipeturma862.cadastronf.exceptions.AgenciaNotFound;
-import com.equipeturma862.cadastronf.exceptions.FuncionarioSolicitante;
 import com.equipeturma862.cadastronf.exceptions.RequisicaoNotFound;
 import com.equipeturma862.cadastronf.repository.RequisicaoRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,10 +24,6 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 
 	    @Override
 	    public Requisicao save(Requisicao requisicao) {
-
-	        if(requisicao.getFuncionarioSolicitante() == null) {
-				throw new FuncionarioSolicitante();
-			}
 			return requisicaoRepository.save(requisicao);
 	    }
 
