@@ -7,6 +7,6 @@ import com.equipeturma862.cadastronf.service.*;
 public class FuncionarioNotFound extends RuntimeException {
 	
 	public FuncionarioNotFound () {
-		super ("Por favor digitar o codigo funcional do funcionario");
+		super ("Funcionário não existe");
 	}
 }
