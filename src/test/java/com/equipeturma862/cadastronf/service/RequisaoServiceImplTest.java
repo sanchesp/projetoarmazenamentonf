@@ -41,4 +41,25 @@ public class RequisaoServiceImplTest {
 
     }
 
+    @Test
+    @DisplayName("deveLancarUmaExceptionQuandoIdNaoEncontradoUpdate")
+    public void deveLancarUmaExceptionQuandoIdNaoEncontradoUpdate() {
+
+        Requisicao requisicao = RequisicaoBuilder.retornarRequisicaoBuilder().get();
+        Throwable throwable = Assertions.assertThrows(RequisicaoNotFound.class,
+                () -> requisicaoService.update(1L,requisicao ));
+
+        Assertions.assertEquals("Requisição não localizada", throwable.getMessage());
+    }
+
+    @Test
+    @DisplayName("deveLancarUmaExceptionQuandoIdNaoEncontradoDelete")
+    public void deveLancarUmaExceptionQuandoIdNaoEncontradoDelete() {
+
+        Requisicao requisicao = RequisicaoBuilder.retornarRequisicaoBuilder().get();
+        Throwable throwable = Assertions.assertThrows(RequisicaoNotFound.class,
+                () -> requisicaoService.delete(1L));
+
+        Assertions.assertEquals("Requisição não localizada", throwable.getMessage());
+    }
 }
