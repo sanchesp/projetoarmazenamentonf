@@ -3,6 +3,7 @@ package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.builder.RequisicaoBuilder;
 import com.equipeturma862.cadastronf.domain.Requisicao;
+import com.equipeturma862.cadastronf.exceptions.RequisicaoNotFound;
 import com.equipeturma862.cadastronf.repository.RequisicaoRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,9 +11,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 
-import java.util.Optional;
-
 public class RequisaoServiceImplTest {
+
+
 
     @InjectMocks
     private RequisicaoServiceImpl requisicaoService;
@@ -23,6 +24,7 @@ public class RequisaoServiceImplTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
+
 
     @Test
     @DisplayName("Deve salvar uma requisição")
@@ -38,17 +40,5 @@ public class RequisaoServiceImplTest {
         Mockito.verify(requisicaoRepository, Mockito.times(1)).save(ArgumentMatchers.any(Requisicao.class));
 
     }
-    @Test
-    @DisplayName("Não deve Atualizar uma requisição não encontrada")
-    public void naoAtualizarRequisiçãoNaoEncontrada(){
 
-        //Given
-        Requisicao requisicao = RequisicaoBuilder.retornarRequisicaoBuilder().get();
-
-
-        //When
-
-
-        //Then
-    }
 }
