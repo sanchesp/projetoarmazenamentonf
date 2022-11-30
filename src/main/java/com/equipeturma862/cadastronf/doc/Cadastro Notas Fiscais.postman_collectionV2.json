@@ -1,0 +1,1438 @@
+{
+	"info": {
+		"_postman_id": "499a487a-dc2c-44ac-991a-9b76f722a7a0",
+		"name": "Cadastro Notas Fiscais",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23822037"
+	},
+	"item": [
+		{
+			"name": "Agencia",
+			"item": [
+				{
+					"name": "Consulta lista de agências",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/agencias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exibi os dados de uma agência",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/agencias/{agenciaId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias",
+										"{agenciaId}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Exibi a lista de  todas as agencias cadastradas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/agencias/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Adiciona os dados de uma nova agência",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroDeIdentificacao\": 1,\r\n    \"nome\": \"nome do funcionario\",\r\n    \"email\": \"email\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agencias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Adiciona os dados de uma nova agência",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroDeIdentificacao\": 1,\r\n    \"nome\": \"nome do funcionario\",\r\n    \"email\": \"email\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/agencias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Atualiza os dados de uma agência",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agencias/{agenciaId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias",
+								"{agenciaId}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza os dados de uma agência",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroDeIdentificacao\": 1,\r\n    \"nome\": \"nome do funcionario\",\r\n    \"email\": \"email\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/agencias/{id}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias",
+										"{id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Exclui todos os dados de uma agência",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agencias/{agenciaId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias",
+								"{agenciaId}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funcionario",
+			"item": [
+				{
+					"name": "Consulta lista de funcionarios cadastrados em uma agencia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agencias/{agenciaId}/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias",
+								"{agenciaId}",
+								"funcionarios"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta lista de funcionarios cadastrados em uma agencia",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/agencias/{agenciaId}/funcionarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias",
+										"{agenciaId}",
+										"funcionarios"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Consulta os dados de funcionario cadastrados em uma agencia",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/agencias/{agenciaId}/funcionarios/{funcionarioId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias",
+										"{agenciaId}",
+										"funcionarios",
+										"{funcionarioId}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Adiciona os dados de um funcionario a agencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"nome do funcionario\",\r\n    \"funcional\": 123456,\r\n    \"email\": \"email do funcionario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agencias/{agenciaId}/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias",
+								"{agenciaId}",
+								"funcionarios"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Adiciona os dados de um funcionario a agencia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"nome do funcionario\",\r\n    \"funcional\": 123456,\r\n    \"email\": \"email do funcionario\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/agencias/{agenciaId}/funcionarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias",
+										"{agenciaId}",
+										"funcionarios"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Atualiza os dados de um funcionario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"nome do funcionario\",\r\n    \"funcional\": 123456,\r\n    \"email\": \"email do funcionario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agencias/{agenciasid}/funcionarios/{funcionarioId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias",
+								"{agenciasid}",
+								"funcionarios",
+								"{funcionarioId}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza os dados de um funcionario",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"nome do funcionario\",\r\n    \"funcional\": 123456,\r\n    \"email\": \"email do funcionario\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/agencias/{agenciasid}/funcionarios/{fubncionarioid}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"agencias",
+										"{agenciasid}",
+										"funcionarios",
+										"{fubncionarioid}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Exclui todos dados de um funcionario cadastrado em uma agencia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agencias/{agenciasid}/funcionarios/{funcionariosid}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias",
+								"{agenciasid}",
+								"funcionarios",
+								"{funcionariosid}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requisição",
+			"item": [
+				{
+					"name": "Consulta lista de requições",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/requisicoes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requisicoes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta lista de requições",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/requisicoes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"requisicoes"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Consulta dados de uma requição especifica",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/requisicoes/{requicaoId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"requisicoes",
+										"{requicaoId}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Adiciona uma nova requisição",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"detalheDoTrajeto\": \"descrever os detalhes do trajeto\",\r\n    \"numeroDaAgenciaSolicitante\": 150,   \r\n    \"funcionarioSolicitante\": {\r\n        \"id\": 1\r\n    },\r\n    \"notaFiscal\":{\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/requisicoes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requisicoes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Adiciona uma nova requisição",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"detalheDoTrajeto\": \"descrever os detalhes do trajeto\",\r\n    \"numeroDaAgenciaSolicitante\": 150,\r\n    \"funcionarioSolicitante\": {\r\n        \"id\": 1\r\n    },\r\n    \"notaFiscal\": {\r\n        \"id\": 2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/requisicoes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"requisicoes"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Atualiza os dados uma requisição",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"detalheDoTrajeto\": \"descrever os detalhes do trajeto\",\r\n    \"numeroDaAgenciaSolicitante\": 150,\r\n    \"funcionarioSolicitante\": {\r\n        \"id\": 1\r\n    },\r\n    \"notaFiscal\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/requisicao/{requisicao_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requisicao",
+								"{requisicao_id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza os dados uma requisição",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"detalheDoTrajeto\": \"descrever os detalhes do trajeto\",\r\n    \"numeroDaAgenciaSolicitante\": 150,\r\n    \"funcionarioSolicitante\": {\r\n        \"id\": 1\r\n    },\r\n    \"notaFiscal\": {\r\n        \"id\": 2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/requisicao/{requisicao_id}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"requisicao",
+										"{requisicao_id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Exclui os dados de uma requisição",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agencias/{agenciasid}/funcionarios/{funcionario_id}/requisicao/{requisicao_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agencias",
+								"{agenciasid}",
+								"funcionarios",
+								"{funcionario_id}",
+								"requisicao",
+								"{requisicao_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Nota Fiscal",
+			"item": [
+				{
+					"name": "Consulta lista de notas fiscais emitidas por remetente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}",
+								"notas-fiscais"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta lista de notas fiscais emitidas por remetente",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes",
+										"{remetente_id}",
+										"notas-fiscais"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Consulta dados de notas fiscais especifica emitidas por um remetente",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/{notaFiscalId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes",
+										"{remetente_id}",
+										"notas-fiscais",
+										"{notaFiscalId}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Adiciona os dados de uma nota fiscal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroNotaFiscal\": 123456,\r\n    \"dataEmissao\": \"data de emissão (aaaa-mm-dd)\",\r\n    \"dataPrestacaoServico\": \"data da prestação do serviço (aaaa-mm-dd)\",\r\n    \"valor\": 0.00,\r\n    \"tipoNaturezaOperacao\":{\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}",
+								"notas-fiscais",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Adiciona os dados de uma nota fiscal",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroNotaFiscal\": 123456,\r\n    \"dataEmissao\": \"data de emissão (aaaa-mm-dd)\",\r\n    \"dataPrestacaoServico\": \"data da prestação do serviço (aaaa-mm-dd)\",\r\n    \"valor\": 0.00,\r\n    \"tipoNaturezaOperacao\":{\r\n        \"id\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes",
+										"{remetente_id}",
+										"notas-fiscais",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Atualiza os dados de uma nota fiscal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroNotaFiscal\": 123456,\r\n    \"dataEmissao\": \"data de emissão (aaaa-mm-dd)\",\r\n    \"dataPrestacaoServico\": \"data da prestação do serviço (aaaa-mm-dd)\",\r\n    \"valor\": 0.00,\r\n    \"tipoNaturezaOperacao\":{\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/{notaFiscalId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}",
+								"notas-fiscais",
+								"{notaFiscalId}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza os dados de uma nota fiscal",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroNotaFiscal\": 123456,\r\n    \"dataEmissao\": \"data de emissão (aaaa-mm-dd)\",\r\n    \"dataPrestacaoServico\": \"data da prestação do serviço (aaaa-mm-dd)\",\r\n    \"valor\": 0.00,\r\n    \"tipoNaturezaOperacao\":{\r\n        \"id\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/{notaFiscalId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes",
+										"{remetente_id}",
+										"notas-fiscais",
+										"{notaFiscalId}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Exclui todos os dados de uma nota fiscal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/{notaFiscalId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}",
+								"notas-fiscais",
+								"{notaFiscalId}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Remetente",
+			"item": [
+				{
+					"name": "Consulta de lista de remetentes de notas ficais",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/remetentes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Consulta de lista de remetentes de notas ficais",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/remetentes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Consulta dados de um remetente especifico",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/remetentes/{remetenteId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes",
+										"{remetenteId}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Adiciona os dados de um novo remetente de notas fiscais",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoDePessoa\": \"PESSOA_JURIDICA ou PESSOA_FISICA\",\r\n    \"CNPJ\": \"informe o CNPJ em caso de pessoa juridica\",\r\n    \"CPF\": \"informe o CPF em caso de pessoa fisica\",\r\n    \"razaoSocial\": \"nome da empresa\",\r\n    \"telefone\": \"telefone de contato com DDD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetenteId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetenteId}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Adiciona os dados de um novo remetente de notas fiscais",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipoDePessoa\": \"PESSOA_JURIDICA ou PESSOA_FISICA\",\r\n    \"CNPJ\": \"informe o CNPJ em caso de pessoa juridica\",\r\n    \"CPF\": \"informe o CPF em caso de pessoa fisica\",\r\n    \"razaoSocial\": \"nome da empresa\",\r\n    \"telefone\": \"telefone de contato com DDD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/remetentes/{remetenteId}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes",
+										"{remetenteId}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Atualiza os dados de um remetente de notas fiscais",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoDePessoa\": \"PESSOA_JURIDICA ou PESSOA_FISICA\",\r\n    \"CNPJ\": \"informe o CNPJ em caso de pessoa juridica\",\r\n    \"CPF\": \"informe o CPF em caso de pessoa fisica\",\r\n    \"razaoSocial\": \"nome da empresa\",\r\n    \"telefone\": \"telefone de contato com DDD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza os dados de um remetente de notas fiscais",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipoDePessoa\": \"PESSOA_JURIDICA ou PESSOA_FISICA\",\r\n    \"CNPJ\": \"informe o CNPJ em caso de pessoa juridica\",\r\n    \"CPF\": \"informe o CPF em caso de pessoa fisica\",\r\n    \"razaoSocial\": \"nome da empresa\",\r\n    \"telefone\": \"telefone de contato com DDD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/remetentes/{remetente_id}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"remetentes",
+										"{remetente_id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Exclui todos os dados de um remetente de notas fiscais",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tipo Natureza da Operação",
+			"item": [
+				{
+					"name": "Cunsulta lista dos tipos de natureza da operações",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tipo_natureza_operacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tipo_natureza_operacao"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cunsulta lista dos tipos de natureza da operações",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/tipo_natureza_operacao",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tipo_natureza_operacao"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Cunsulta o nome de um tipo de natureza da operação",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/tipo_natureza_operacao/{tipo_natureza_opercao_id}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tipo_natureza_operacao",
+										"{tipo_natureza_opercao_id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Adiciona os dados de um tipo de natureza da operação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"nome do tipo de natureza da operação realizanda na emissão da nota fiscal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tipo_natureza_operacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tipo_natureza_operacao"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Adiciona os dados de um tipo de natureza da operação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"nome do tipo de natureza da operação realizanda na emissão da nota fiscal\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/tipo_natureza_operacao",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tipo_natureza_operacao"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Atualiza os dados de um tipo de natureza da operação",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"nome do tipo de natureza da operação realizanda na emissão da nota fiscal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tipo_natureza_operacao/{tipo_natureza_opercao_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tipo_natureza_operacao",
+								"{tipo_natureza_opercao_id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza os dados de um tipo de natureza da operação",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"nome do tipo de natureza da operação realizanda na emissão da nota fiscal\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/tipo_natureza_operacao/{tipo_natureza_opercao_id}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tipo_natureza_operacao",
+										"{tipo_natureza_opercao_id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Exclui os dados de um tipo de natureza da operação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tipo_natureza_operacao/{tipo_natureza_opercao_id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tipo_natureza_operacao",
+								"{tipo_natureza_opercao_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File Nota Fiscal",
+			"item": [
+				{
+					"name": "Realiza download do arquivo de Nota Fiscal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/{notaFiscalId}download",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}",
+								"notas-fiscais",
+								"{notaFiscalId}download"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Realizar upload do arquivo de Nota Fiscal",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true,
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"description": "imagem",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/remetentes/{remetente_id}/notas-fiscais/{notaFiscalId}/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"remetentes",
+								"{remetente_id}",
+								"notas-fiscais",
+								"{notaFiscalId}",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
