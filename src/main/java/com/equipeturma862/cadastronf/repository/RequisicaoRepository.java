@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RequisicaoRepository extends CrudRepository<Requisicao, Long> {
+
+    boolean existsByNotaFiscalId (Long id);
 }

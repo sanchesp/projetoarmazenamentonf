@@ -1,6 +1,7 @@
 package com.equipeturma862.cadastronf.service;
 
 import com.equipeturma862.cadastronf.domain.Requisicao;
+import com.equipeturma862.cadastronf.exceptions.NotaFiscalExists;
 import com.equipeturma862.cadastronf.exceptions.RequisicaoNotFound;
 import com.equipeturma862.cadastronf.repository.RequisicaoRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ public class RequisicaoServiceImpl implements RequisicaoService {
    private final RequisicaoRepository requisicaoRepository;
 
 
+
 	    @Override
 	    public List<Requisicao> list (String nome) {
 			return IterableUtils.toList(requisicaoRepository.findAll());
@@ -24,7 +26,9 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 
 	    @Override
 	    public Requisicao save(Requisicao requisicao) {
-			return requisicaoRepository.save(requisicao);
+			if(requisicaoRepository.existsByNotaFiscalId(requisicao.getNotaFiscal().getId())){
+				throw new NotaFiscalExists();
+			} return requisicaoRepository.save(requisicao);
 	    }
 
 	    @Override
@@ -35,8 +39,13 @@ public class RequisicaoServiceImpl implements RequisicaoService {
 	    @Override
 	    public Requisicao update(Long id, Requisicao requisicao) {
 			if(requisicaoRepository.existsById(id)) {
-				requisicao.setId(id);
-				return requisicaoRepository.save(requisicao);
+				if(requisicaoRepository.findById(id).get().getNotaFiscal().getId() == requisicao.getNotaFiscal().getId()) {
+					requisicao.setId(id);
+					return requisicaoRepository.save(requisicao);}
+				else if (requisicaoRepository.existsByNotaFiscalId(requisicao.getNotaFiscal().getId())) {
+					throw new NotaFiscalExists();
+				} else {requisicao.setId(id);
+				return requisicaoRepository.save(requisicao);}
 			} throw new RequisicaoNotFound();
 	    }
 
